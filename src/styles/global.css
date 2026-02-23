@@ -301,10 +301,11 @@ hr {
 }
 
 .logo {
-  font-size: var(--text-lg);
-  font-weight: 700;
+  font-size: var(--text-base);
+  font-weight: 600;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  line-height: 1;
   transition: opacity var(--transition-fast);
 }
 
@@ -822,13 +823,14 @@ hr {
 }
 
 .prose a {
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent);
-  text-underline-offset: 2px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity var(--transition-fast);
 }
 
 .prose a:hover {
-  text-decoration-color: var(--color-accent-hover);
+  opacity: 0.7;
 }
 
 /* ==========================================
