@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
+  .slice(0, 3);
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('ru-RU', {
@@ -13,6 +13,33 @@ const formatDate = (date: Date) => {
     month: 'short'
   }).replace('.', '');
 };
+
+const services = [
+  {
+    title: 'Лендинги',
+    description: 'Продающие одностраничники с высокой конверсией',
+    icon: 'zap',
+    price: 'от 30 000 ₽'
+  },
+  {
+    title: 'Корпоративные сайты',
+    description: 'Многостраничные сайты для бизнеса',
+    icon: 'layers',
+    price: 'от 80 000 ₽'
+  },
+  {
+    title: 'Интернет-магазины',
+    description: 'Каталоги с корзиной и оплатой',
+    icon: 'globe',
+    price: 'от 150 000 ₽'
+  },
+  {
+    title: 'SEO-продвижение',
+    description: 'Вывод сайта в топ поисковиков',
+    icon: 'trending-up',
+    price: 'от 25 000 ₽/мес'
+  }
+];
 ---
 
 <BaseLayout title="Антон Ветров — разработка сайтов и SEO">
@@ -23,26 +50,80 @@ const formatDate = (date: Date) => {
         <Icon name="sparkles" size={14} />
         <span>15+ лет в веб-разработке</span>
       </div>
-      <h1>Привет, я Антон</h1>
+      <h1>Создаю сайты,<br/>которые работают</h1>
       <p>
-        Разрабатываю сайты и занимаюсь SEO-продвижением. 
-        Пишу о технологиях, инструментах и полезных сервисах.
+        Разработка сайтов под ключ и SEO-продвижение. 
+        От лендинга до интернет-магазина. Быстро, качественно, с гарантией.
       </p>
       <div class="hero-actions">
-        <a href="/services/" class="btn btn-primary">
-          Мои услуги
+        <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-primary">
+          Обсудить проект
           <Icon name="arrow-right" size={16} />
         </a>
-        <a href="/blog/" class="btn btn-secondary">
-          Читать блог
+        <a href="/services/" class="btn btn-secondary">
+          Услуги и цены
         </a>
       </div>
     </div>
   </section>
   
-  <!-- Latest posts -->
-  <section class="container" style="padding-bottom: var(--space-20);">
-    <h2 style="margin-top: 0; margin-bottom: var(--space-6);">Последние статьи</h2>
+  <!-- Services -->
+  <section class="container section">
+    <div class="section-header">
+      <h2>Услуги</h2>
+      <a href="/services/" class="section-link">
+        Все услуги
+        <Icon name="arrow-right" size={16} />
+      </a>
+    </div>
+    <div class="services-grid-home">
+      {services.map(service => (
+        <div class="card service-card-home">
+          <div class="service-icon-home">
+            <Icon name={service.icon} size={24} />
+          </div>
+          <div class="service-content">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <span class="service-price">{service.price}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  
+  <!-- Why me -->
+  <section class="container section">
+    <h2 style="text-align: center;">Почему я</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-number">15+</div>
+        <div class="feature-text">лет опыта в разработке</div>
+      </div>
+      <div class="feature">
+        <div class="feature-number">200+</div>
+        <div class="feature-text">реализованных проектов</div>
+      </div>
+      <div class="feature">
+        <div class="feature-number">50+</div>
+        <div class="feature-text">сайтов в топ-10 Яндекса</div>
+      </div>
+      <div class="feature">
+        <div class="feature-number">24/7</div>
+        <div class="feature-text">поддержка клиентов</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog -->
+  <section class="container section">
+    <div class="section-header">
+      <h2>Блог</h2>
+      <a href="/blog/" class="section-link">
+        Все статьи
+        <Icon name="arrow-right" size={16} />
+      </a>
+    </div>
     <div class="blog-list">
       {posts.map((post) => (
         <a href={`/blog/${post.slug}/`} class="card blog-card card-link">
@@ -56,19 +137,25 @@ const formatDate = (date: Date) => {
         </a>
       ))}
     </div>
-    {posts.length > 0 && (
-      <div style="text-align: center; margin-top: var(--space-8);">
-        <a href="/blog/" class="btn btn-secondary">
-          Все статьи
-          <Icon name="arrow-right" size={16} />
-        </a>
-      </div>
-    )}
     {posts.length === 0 && (
       <div class="card" style="text-align: center; padding: var(--space-12);">
         <p style="margin: 0; color: var(--color-text-muted);">Статьи скоро появятся...</p>
       </div>
     )}
+  </section>
+  
+  <!-- CTA -->
+  <section class="container section">
+    <div class="cta-section">
+      <h2>Готовы начать проект?</h2>
+      <p>
+        Напишите мне — обсудим задачу, сроки и стоимость. Консультация бесплатно.
+      </p>
+      <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-primary">
+        <Icon name="send" size={16} />
+        Написать в Telegram
+      </a>
+    </div>
   </section>
 </BaseLayout>
 
@@ -84,5 +171,112 @@ const formatDate = (date: Date) => {
     font-size: var(--text-sm);
     color: var(--color-accent);
     margin-bottom: var(--space-6);
+  }
+  
+  .section {
+    padding: var(--space-16) 0;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-8);
+  }
+  
+  .section-header h2 {
+    margin: 0;
+  }
+  
+  .section-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  
+  .section-link:hover {
+    color: var(--color-accent);
+  }
+  
+  .services-grid-home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid-home {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .service-card-home {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  
+  .service-icon-home {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-lg);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .service-content h3 {
+    margin: 0 0 var(--space-1);
+    font-size: var(--text-base);
+  }
+  
+  .service-content p {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  
+  .service-price {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .feature {
+    text-align: center;
+  }
+  
+  .feature-number {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+  
+  .feature-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
   }
 </style>

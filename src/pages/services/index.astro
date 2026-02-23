@@ -4,52 +4,91 @@ import Icon from '../../components/Icon.astro';
 
 const services = [
   {
-    title: 'Разработка сайтов',
-    description: 'Создание сайтов на MODX, Astro, Next.js. От лендингов до сложных веб-приложений.',
-    icon: 'monitor'
+    title: 'Лендинги',
+    description: 'Продающие одностраничники с фокусом на конверсию. Идеальны для рекламных кампаний, запуска продуктов, акций.',
+    icon: 'zap',
+    price: 'от 30 000 ₽',
+    features: ['Адаптивный дизайн', 'Формы захвата', 'Интеграция с CRM', 'Аналитика']
+  },
+  {
+    title: 'Корпоративные сайты',
+    description: 'Многостраничные сайты для компаний. Представительство в интернете, каталог услуг, портфолио.',
+    icon: 'layers',
+    price: 'от 80 000 ₽',
+    features: ['До 15 страниц', 'Уникальный дизайн', 'Админ-панель', 'SEO-оптимизация']
+  },
+  {
+    title: 'Интернет-магазины',
+    description: 'Полноценные магазины с каталогом, корзиной, оплатой и личным кабинетом.',
+    icon: 'globe',
+    price: 'от 150 000 ₽',
+    features: ['Каталог товаров', 'Корзина и оплата', 'Интеграция с 1С', 'Фильтры и поиск']
   },
   {
     title: 'SEO-продвижение',
-    description: 'Аудит, оптимизация, продвижение в поисковых системах. Больше клиентов из органики.',
-    icon: 'trending-up'
+    description: 'Вывод сайта в топ Яндекса и Google. Аудит, оптимизация, ссылочное продвижение.',
+    icon: 'trending-up',
+    price: 'от 25 000 ₽/мес',
+    features: ['Технический аудит', 'Семантическое ядро', 'Контент-план', 'Ежемесячные отчёты']
   },
   {
     title: 'Техническая поддержка',
-    description: 'Поддержка и доработка существующих сайтов. Обновление, безопасность, оптимизация.',
-    icon: 'settings'
+    description: 'Обновление, доработки, исправление багов, резервное копирование, защита от взлома.',
+    icon: 'settings',
+    price: 'от 10 000 ₽/мес',
+    features: ['Мониторинг 24/7', 'Резервные копии', 'Обновления', 'Консультации']
   },
   {
     title: 'Автоматизация',
-    description: 'Интеграция с CRM, настройка отчётов, боты и скрипты для автоматизации бизнеса.',
-    icon: 'bot'
+    description: 'Интеграция сайта с CRM, 1С, складом. Автоматические отчёты, уведомления, боты.',
+    icon: 'bot',
+    price: 'от 40 000 ₽',
+    features: ['Интеграции API', 'Telegram-боты', 'Автоотчёты', 'Скрипты']
   }
 ];
 ---
 
-<BaseLayout title="Услуги | Антон Ветров" description="Разработка сайтов, SEO-продвижение, техническая поддержка">
+<BaseLayout title="Услуги | Антон Ветров" description="Разработка сайтов, SEO-продвижение, техническая поддержка — цены и условия">
   <div class="container" style="padding: var(--space-12) 0 var(--space-20);">
     <h1>Услуги</h1>
-    <p style="color: var(--color-text-secondary); max-width: 560px; margin-bottom: 0;">
-      Помогаю бизнесу получать клиентов из интернета. Разрабатываю сайты, продвигаю в поиске, автоматизирую процессы.
+    <p class="page-description">
+      Полный цикл: от дизайна до продвижения. Работаю на результат — сайт должен приносить клиентов.
     </p>
     
-    <div class="services-grid">
-      {services.map(service => (
-        <div class="card service-card">
-          <div class="service-icon">
-            <Icon name={service.icon} size={32} />
+    <div class="services-detailed">
+      {services.map((service, index) => (
+        <div class="service-block card">
+          <div class="service-header">
+            <div class="service-icon-large">
+              <Icon name={service.icon} size={28} />
+            </div>
+            <div>
+              <h2>{service.title}</h2>
+              <p class="service-description">{service.description}</p>
+            </div>
           </div>
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
+          <div class="service-body">
+            <ul class="service-features">
+              {service.features.map(feature => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+            <div class="service-footer">
+              <span class="service-price-large">{service.price}</span>
+              <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-secondary">
+                Заказать
+              </a>
+            </div>
+          </div>
         </div>
       ))}
     </div>
     
     <!-- CTA -->
     <div class="cta-section">
-      <h2>Обсудим проект?</h2>
+      <h2>Не нашли подходящую услугу?</h2>
       <p>
-        Напишите мне в Telegram, расскажите о задаче — обсудим детали и сроки.
+        Напишите мне — обсудим вашу задачу и найдём решение.
       </p>
       <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="btn btn-primary">
         <Icon name="send" size={16} />
@@ -60,7 +99,36 @@ const services = [
 </BaseLayout>
 
 <style>
-  .service-icon {
+  .page-description {
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin-bottom: var(--space-10);
+  }
+  
+  .services-detailed {
+    display: grid;
+    gap: var(--space-6);
+  }
+  
+  .service-block {
+    display: grid;
+    gap: var(--space-6);
+  }
+  
+  @media (min-width: 768px) {
+    .service-block {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+  
+  .service-header {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  
+  .service-icon-large {
     width: 56px;
     height: 56px;
     display: flex;
@@ -68,7 +136,67 @@ const services = [
     justify-content: center;
     background: var(--gradient-subtle);
     border-radius: var(--radius-lg);
-    margin-bottom: var(--space-4);
     color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .service-header h2 {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-xl);
+  }
+  
+  .service-description {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+  
+  .service-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+  
+  @media (max-width: 480px) {
+    .service-features {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+  
+  .service-features li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+  
+  .service-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .service-price-large {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
   }
 </style>
