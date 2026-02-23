@@ -301,11 +301,12 @@ hr {
 }
 
 .logo {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: -0.01em;
   line-height: 1;
+  white-space: nowrap;
   transition: opacity var(--transition-fast);
 }
 
