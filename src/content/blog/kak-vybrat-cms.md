@@ -5,6 +5,7 @@ pubDate: 2025-02-15
 category: "Разработка"
 tags: ["cms", "wordpress", "modx", "разработка"]
 author: "Антон Ветров"
+heroImage: "/anton-vetrov/images/blog/cms.png"
 ---
 
 CMS (Content Management System) — система управления контентом. Позволяет редактировать сайт без программиста. Но какую выбрать?

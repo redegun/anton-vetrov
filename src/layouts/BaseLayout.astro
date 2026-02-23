@@ -61,7 +61,39 @@ const base = import.meta.env.BASE_URL;
   
   <footer class="footer">
     <div class="container">
-      <p>© {new Date().getFullYear()} Антон Ветров. Все права защищены.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Антон Ветров</div>
+          <p class="footer-desc">Разработка сайтов и SEO-продвижение. 15+ лет опыта.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Услуги</div>
+          <ul class="footer-links">
+            <li><a href={`${base}services/`}>Лендинги</a></li>
+            <li><a href={`${base}services/`}>Корпоративные сайты</a></li>
+            <li><a href={`${base}services/`}>Интернет-магазины</a></li>
+            <li><a href={`${base}services/`}>SEO-продвижение</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Блог</div>
+          <ul class="footer-links">
+            <li><a href={`${base}blog/`}>Все статьи</a></li>
+            <li><a href={`${base}blog/category/разработка/`}>Разработка</a></li>
+            <li><a href={`${base}blog/category/seo/`}>SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Контакты</div>
+          <ul class="footer-links">
+            <li><a href="https://t.me/antonneprosto" target="_blank">Telegram</a></li>
+            <li><a href="mailto:hello@antonvetrov.ru">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© {new Date().getFullYear()} Антон Ветров. Все права защищены.</p>
+      </div>
     </div>
   </footer>
 </body>
