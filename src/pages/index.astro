@@ -42,6 +42,27 @@ const services = [
     price: 'от 50 000 ₽/мес'
   }
 ];
+
+const portfolio = [
+  {
+    name: 'Vinyl TM',
+    url: 'https://vinyl-tm.ru',
+    description: 'Оклейка авто плёнкой и брендирование транспорта',
+    image: '/anton-vetrov/images/portfolio/vinyl-tm.png'
+  },
+  {
+    name: 'Gitwell',
+    url: 'https://gitwell.ru',
+    description: 'Интернет-магазин корпоративных подарков',
+    image: '/anton-vetrov/images/portfolio/gitwell.png'
+  },
+  {
+    name: 'КППФ',
+    url: 'https://kppf.ru',
+    description: 'Защитная антигравийная плёнка',
+    image: '/anton-vetrov/images/portfolio/kppf.png'
+  }
+];
 ---
 
 <BaseLayout title="Антон Ветров — разработка сайтов и SEO">
@@ -114,6 +135,30 @@ const services = [
         <div class="feature-number">24/7</div>
         <div class="feature-text">поддержка клиентов</div>
       </div>
+    </div>
+  </section>
+  
+  <!-- Portfolio -->
+  <section class="container section">
+    <div class="section-header">
+      <h2>Портфолио</h2>
+      <a href={`${base}portfolio/`} class="section-link">
+        Все работы
+        <Icon name="arrow-right" size={16} />
+      </a>
+    </div>
+    <div class="portfolio-grid-home">
+      {portfolio.map((project) => (
+        <a href={project.url} target="_blank" rel="noopener" class="portfolio-card-home">
+          <div class="portfolio-image-home">
+            <img src={project.image} alt={project.name} />
+          </div>
+          <div class="portfolio-info-home">
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
   
@@ -278,6 +323,67 @@ const services = [
   }
   
   .feature-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  
+  .portfolio-grid-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-grid-home {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .portfolio-card-home {
+    display: block;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .portfolio-card-home:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .portfolio-image-home {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  
+  .portfolio-image-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+  
+  .portfolio-card-home:hover .portfolio-image-home img {
+    transform: scale(1.02);
+  }
+  
+  .portfolio-info-home {
+    padding: var(--space-4);
+  }
+  
+  .portfolio-info-home h3 {
+    margin: 0 0 var(--space-1);
+    font-size: var(--text-base);
+    color: var(--color-text);
+  }
+  
+  .portfolio-info-home p {
+    margin: 0;
     font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
