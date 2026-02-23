@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+---
+
+<BaseLayout title="Антон Ветров — разработка сайтов и SEO">
+  <section class="hero">
+    <div class="container">
+      <h1>Привет, я Антон 👋</h1>
+      <p>
+        Разрабатываю сайты и занимаюсь SEO-продвижением. 
+        15+ лет в веб-разработке. Пишу о технологиях, инструментах и полезных сервисах.
+      </p>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+        <a href="/services/" class="card" style="display: inline-block; padding: 0.75rem 1.5rem;">
+          Мои услуги →
+        </a>
+        <a href="/blog/" class="card" style="display: inline-block; padding: 0.75rem 1.5rem;">
+          Читать блог →
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container" style="padding-bottom: 4rem;">
+    <h2>Последние статьи</h2>
+    <div class="blog-list">
+      {posts.map((post) => (
+        <a href={`/blog/${post.slug}/`} class="card blog-card">
+          <div class="blog-meta">
+            {post.data.pubDate.toLocaleDateString('ru-RU')} • {post.data.category}
+          </div>
+          <h3>{post.data.title}</h3>
+          <p class="blog-excerpt">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+    {posts.length > 0 && (
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/blog/">Все статьи →</a>
+      </div>
+    )}
+  </section>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  category: string;
+  limit?: number;
+}
+
+const { currentSlug, category, limit = 3 } = Astro.props;
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter(post => post.slug !== currentSlug && post.data.category === category)
+  .slice(0, limit);
+---
+
+{relatedPosts.length > 0 && (
+  <section class="related-posts">
+    <h3>Читайте также</h3>
+    <div class="related-grid">
+      {relatedPosts.map((post) => (
+        <a href={`/blog/${post.slug}/`} class="card blog-card">
+          <h4 style="margin-top: 0">{post.data.title}</h4>
+          <p class="blog-excerpt">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

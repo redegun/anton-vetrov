@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TOC from '../components/TOC.astro';
+import Author from '../components/Author.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import ArticleSchema from '../components/ArticleSchema.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category: string;
+  author: string;
+  headings: { depth: number; slug: string; text: string }[];
+  slug: string;
+}
+
+const { title, description, pubDate, updatedDate, heroImage, category, author, headings, slug } = Astro.props;
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<BaseLayout title={`${title} | Антон Ветров`} description={description} image={heroImage}>
+  <ArticleSchema 
+    title={title}
+    description={description}
+    pubDate={pubDate}
+    updatedDate={updatedDate}
+    author={author}
+    image={heroImage}
+    url={Astro.url.href}
+  />
+  
+  <article class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="content">
+      <header style="margin-bottom: 2rem;">
+        <div class="blog-meta">
+          <span>{formatDate(pubDate)}</span>
+          <span style="margin: 0 0.5rem;">•</span>
+          <a href={`/blog/category/${category.toLowerCase()}/`}>{category}</a>
+        </div>
+        <h1 style="margin-top: 0.5rem;">{title}</h1>
+        <p style="color: var(--color-text-muted); font-size: 1.1rem;">{description}</p>
+      </header>
+      
+      {heroImage && (
+        <img 
+          src={heroImage} 
+          alt={title} 
+          style="width: 100%; border-radius: 12px; margin-bottom: 2rem;"
+        />
+      )}
+      
+      <TOC headings={headings} />
+      
+      <div class="prose">
+        <slot />
+      </div>
+      
+      <Author name={author} />
+      
+      <RelatedPosts currentSlug={slug} category={category} />
+    </div>
+  </article>
+</BaseLayout>

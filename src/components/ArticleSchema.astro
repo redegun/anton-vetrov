@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  image?: string;
+  url: string;
+}
+
+const { title, description, pubDate, updatedDate, author, image, url } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate.toISOString(),
+  "dateModified": (updatedDate || pubDate).toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": author,
+    "url": "https://antonvetrov.ru"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Антон Ветров",
+    "url": "https://antonvetrov.ru"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  },
+  ...(image && { "image": image })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

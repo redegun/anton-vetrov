@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'Разработка сайтов',
+    description: 'Создание сайтов на MODX, Astro, Next.js. От лендингов до сложных веб-приложений.',
+    icon: '🖥️'
+  },
+  {
+    title: 'SEO-продвижение',
+    description: 'Аудит, оптимизация, продвижение в поисковых системах. Результат — больше клиентов из органики.',
+    icon: '📈'
+  },
+  {
+    title: 'Техническая поддержка',
+    description: 'Поддержка и доработка существующих сайтов. Обновление, безопасность, оптимизация.',
+    icon: '🔧'
+  },
+  {
+    title: 'Автоматизация',
+    description: 'Интеграция с CRM, настройка автоматических отчётов, боты и скрипты для бизнеса.',
+    icon: '🤖'
+  }
+];
+---
+
+<BaseLayout title="Услуги | Антон Ветров" description="Разработка сайтов, SEO-продвижение, техническая поддержка">
+  <div class="container" style="padding: 2rem 0 4rem;">
+    <h1>Услуги</h1>
+    <p style="color: var(--color-text-muted); margin-bottom: 2rem; max-width: 600px;">
+      Помогаю бизнесу получать клиентов из интернета. Разрабатываю сайты, продвигаю в поиске, автоматизирую процессы.
+    </p>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="card service-card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">{service.icon}</div>
+          <h3>{service.title}</h3>
+          <p style="color: var(--color-text-muted);">{service.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--color-bg-secondary); border-radius: 12px;">
+      <h2 style="margin-top: 0;">Обсудим проект?</h2>
+      <p style="color: var(--color-text-muted);">
+        Напишите мне в Telegram, расскажите о задаче — обсудим детали и сроки.
+      </p>
+      <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="card" style="display: inline-block; padding: 0.75rem 1.5rem; margin-top: 1rem;">
+        Написать в Telegram →
+      </a>
+    </div>
+  </div>
+</BaseLayout>
