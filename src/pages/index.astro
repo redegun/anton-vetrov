@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -18,14 +19,19 @@ const formatDate = (date: Date) => {
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Привет, я Антон 👋</h1>
+      <div class="hero-badge">
+        <Icon name="sparkles" size={14} />
+        <span>15+ лет в веб-разработке</span>
+      </div>
+      <h1>Привет, я Антон</h1>
       <p>
         Разрабатываю сайты и занимаюсь SEO-продвижением. 
-        15+ лет в веб-разработке. Пишу о технологиях, инструментах и полезных сервисах.
+        Пишу о технологиях, инструментах и полезных сервисах.
       </p>
       <div class="hero-actions">
         <a href="/services/" class="btn btn-primary">
           Мои услуги
+          <Icon name="arrow-right" size={16} />
         </a>
         <a href="/blog/" class="btn btn-secondary">
           Читать блог
@@ -52,7 +58,10 @@ const formatDate = (date: Date) => {
     </div>
     {posts.length > 0 && (
       <div style="text-align: center; margin-top: var(--space-8);">
-        <a href="/blog/" class="btn btn-secondary">Все статьи →</a>
+        <a href="/blog/" class="btn btn-secondary">
+          Все статьи
+          <Icon name="arrow-right" size={16} />
+        </a>
       </div>
     )}
     {posts.length === 0 && (
@@ -62,3 +71,18 @@ const formatDate = (date: Date) => {
     )}
   </section>
 </BaseLayout>
+
+<style>
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    margin-bottom: var(--space-6);
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 ---
 
 <BaseLayout title="Контакты | Антон Ветров" description="Свяжитесь со мной для обсуждения проекта">
@@ -11,21 +12,60 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     
     <div class="contact-grid">
       <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="card contact-card card-link">
-        <div class="contact-icon">💬</div>
+        <div class="contact-icon">
+          <Icon name="send" size={28} />
+        </div>
         <h3>Telegram</h3>
         <p>@antonneprosto</p>
       </a>
       
       <a href="mailto:hello@antonvetrov.ru" class="card contact-card card-link">
-        <div class="contact-icon">📧</div>
+        <div class="contact-icon">
+          <Icon name="mail" size={28} />
+        </div>
         <h3>Email</h3>
         <p>hello@antonvetrov.ru</p>
       </a>
     </div>
     
-    <div style="margin-top: var(--space-12); color: var(--color-text-muted); font-size: var(--text-sm);">
-      <p style="margin-bottom: var(--space-2);">📍 Москва, Россия</p>
-      <p style="margin-bottom: 0;">🕐 Отвечаю в рабочее время (10:00–19:00 МСК)</p>
+    <div class="contact-info">
+      <div class="info-item">
+        <Icon name="map-pin" size={18} />
+        <span>Москва, Россия</span>
+      </div>
+      <div class="info-item">
+        <Icon name="clock" size={18} />
+        <span>Отвечаю в рабочее время (10:00–19:00 МСК)</span>
+      </div>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .contact-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+    color: var(--color-accent);
+  }
+  
+  .contact-info {
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

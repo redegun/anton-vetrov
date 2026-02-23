@@ -1,26 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 
 const services = [
   {
     title: 'Разработка сайтов',
     description: 'Создание сайтов на MODX, Astro, Next.js. От лендингов до сложных веб-приложений.',
-    icon: '🖥️'
+    icon: 'monitor'
   },
   {
     title: 'SEO-продвижение',
     description: 'Аудит, оптимизация, продвижение в поисковых системах. Больше клиентов из органики.',
-    icon: '📈'
+    icon: 'trending-up'
   },
   {
     title: 'Техническая поддержка',
     description: 'Поддержка и доработка существующих сайтов. Обновление, безопасность, оптимизация.',
-    icon: '🔧'
+    icon: 'settings'
   },
   {
     title: 'Автоматизация',
     description: 'Интеграция с CRM, настройка отчётов, боты и скрипты для автоматизации бизнеса.',
-    icon: '🤖'
+    icon: 'bot'
   }
 ];
 ---
@@ -35,7 +36,9 @@ const services = [
     <div class="services-grid">
       {services.map(service => (
         <div class="card service-card">
-          <div class="service-icon">{service.icon}</div>
+          <div class="service-icon">
+            <Icon name={service.icon} size={32} />
+          </div>
           <h3>{service.title}</h3>
           <p>{service.description}</p>
         </div>
@@ -49,8 +52,23 @@ const services = [
         Напишите мне в Telegram, расскажите о задаче — обсудим детали и сроки.
       </p>
       <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="btn btn-primary">
+        <Icon name="send" size={16} />
         Написать в Telegram
       </a>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+    color: var(--color-accent);
+  }
+</style>
