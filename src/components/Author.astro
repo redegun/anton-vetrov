@@ -2,20 +2,22 @@
 interface Props {
   name: string;
   bio?: string;
-  avatar?: string;
 }
 
 const { 
   name, 
-  bio = 'Веб-разработчик с 15+ лет опыта. Создаю сайты на MODX, занимаюсь SEO-продвижением.',
-  avatar = '/images/anton-vetrov.jpg'
+  bio = 'Веб-разработчик с 15+ лет опыта. Создаю сайты на MODX, занимаюсь SEO-продвижением.'
 } = Astro.props;
+
+const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
 ---
 
 <div class="author-box">
-  <img src={avatar} alt={name} class="author-avatar" />
-  <div>
+  <div class="author-avatar">
+    {initials}
+  </div>
+  <div class="author-info">
     <div class="author-name">{name}</div>
-    <div class="author-bio">{bio}</div>
+    <p class="author-bio">{bio}</p>
   </div>
 </div>

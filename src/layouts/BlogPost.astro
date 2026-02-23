@@ -39,34 +39,40 @@ const formatDate = (date: Date) => {
     url={Astro.url.href}
   />
   
-  <article class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <article class="container" style="padding: var(--space-12) 0 var(--space-20);">
     <div class="content">
-      <header style="margin-bottom: 2rem;">
+      <!-- Header -->
+      <header class="article-header">
         <div class="blog-meta">
           <span>{formatDate(pubDate)}</span>
-          <span style="margin: 0 0.5rem;">•</span>
-          <a href={`/blog/category/${category.toLowerCase()}/`}>{category}</a>
+          <span class="separator"></span>
+          <a href={`/blog/category/${category.toLowerCase()}/`} class="category-badge">{category}</a>
         </div>
-        <h1 style="margin-top: 0.5rem;">{title}</h1>
-        <p style="color: var(--color-text-muted); font-size: 1.1rem;">{description}</p>
+        <h1>{title}</h1>
+        <p class="article-description">{description}</p>
       </header>
       
+      <!-- Hero image -->
       {heroImage && (
         <img 
           src={heroImage} 
           alt={title} 
-          style="width: 100%; border-radius: 12px; margin-bottom: 2rem;"
+          class="article-hero"
         />
       )}
       
+      <!-- TOC -->
       <TOC headings={headings} />
       
+      <!-- Content -->
       <div class="prose">
         <slot />
       </div>
       
+      <!-- Author -->
       <Author name={author} />
       
+      <!-- Related posts -->
       <RelatedPosts currentSlug={slug} category={category} />
     </div>
   </article>
