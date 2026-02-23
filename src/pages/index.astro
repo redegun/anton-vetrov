@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
@@ -60,7 +62,7 @@ const services = [
           Обсудить проект
           <Icon name="arrow-right" size={16} />
         </a>
-        <a href="/services/" class="btn btn-secondary">
+        <a href={`${base}services/`} class="btn btn-secondary">
           Услуги и цены
         </a>
       </div>
@@ -71,7 +73,7 @@ const services = [
   <section class="container section">
     <div class="section-header">
       <h2>Услуги</h2>
-      <a href="/services/" class="section-link">
+      <a href={`${base}services/`} class="section-link">
         Все услуги
         <Icon name="arrow-right" size={16} />
       </a>
@@ -119,14 +121,14 @@ const services = [
   <section class="container section">
     <div class="section-header">
       <h2>Блог</h2>
-      <a href="/blog/" class="section-link">
+      <a href={`${base}blog/`} class="section-link">
         Все статьи
         <Icon name="arrow-right" size={16} />
       </a>
     </div>
     <div class="blog-list">
       {posts.map((post) => (
-        <a href={`/blog/${post.slug}/`} class="card blog-card card-link">
+        <a href={`${base}blog/${post.slug}/`} class="card blog-card card-link">
           <div class="blog-meta">
             <span>{formatDate(post.data.pubDate)}</span>
             <span class="separator"></span>

@@ -5,6 +5,8 @@ import Author from '../components/Author.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import ArticleSchema from '../components/ArticleSchema.astro';
 
+const base = import.meta.env.BASE_URL;
+
 interface Props {
   title: string;
   description: string;
@@ -46,7 +48,7 @@ const formatDate = (date: Date) => {
         <div class="blog-meta">
           <span>{formatDate(pubDate)}</span>
           <span class="separator"></span>
-          <a href={`/blog/category/${category.toLowerCase()}/`} class="category-badge">{category}</a>
+          <a href={`${base}blog/category/${category.toLowerCase()}/`} class="category-badge">{category}</a>
         </div>
         <h1>{title}</h1>
         <p class="article-description">{description}</p>
