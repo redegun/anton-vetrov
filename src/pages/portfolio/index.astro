@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const projects = [
+  {
+    name: 'Vinyl TM',
+    url: 'https://vinyl-tm.ru',
+    description: 'Оклейка авто плёнкой и брендирование корпоративного транспорта. Сайт-визитка с каталогом услуг и портфолио работ.',
+    stack: ['MODX', 'PHP', 'JavaScript'],
+    services: ['Разработка', 'SEO-продвижение'],
+    image: '/anton-vetrov/images/portfolio/vinyl-tm.png'
+  },
+  {
+    name: 'Gitwell',
+    url: 'https://gitwell.ru',
+    description: 'Интернет-магазин корпоративных подарков с логотипом. Каталог товаров, калькулятор нанесения, личный кабинет.',
+    stack: ['MODX', 'PHP', 'miniShop2'],
+    services: ['Разработка', 'SEO-продвижение'],
+    image: '/anton-vetrov/images/portfolio/gitwell.png'
+  },
+  {
+    name: 'КППФ',
+    url: 'https://kppf.ru',
+    description: 'Продажа защитной антигравийной полиуретановой плёнки. Каталог продукции, калькулятор расчёта.',
+    stack: ['MODX', 'PHP', 'JavaScript'],
+    services: ['Разработка', 'SEO-продвижение'],
+    image: '/anton-vetrov/images/portfolio/kppf.png'
+  },
+  {
+    name: 'CupTrade',
+    url: 'https://cuptrade.ru',
+    description: 'Производство и продажа бумажных стаканчиков. Каталог продукции, калькулятор заказа, интеграция с CRM.',
+    stack: ['MODX', 'PHP', 'miniShop2'],
+    services: ['Разработка', 'SEO-продвижение'],
+    image: '/anton-vetrov/images/portfolio/cuptrade.png'
+  }
+];
+---
+
+<BaseLayout title="Портфолио | Антон Ветров" description="Примеры работ: сайты, интернет-магазины, SEO-продвижение">
+  <div class="container" style="padding: var(--space-12) 0 var(--space-20);">
+    <h1>Портфолио</h1>
+    <p class="page-description">
+      Проекты, над которыми я работал. Разработка сайтов с нуля и SEO-продвижение.
+    </p>
+    
+    <div class="portfolio-grid">
+      {projects.map((project) => (
+        <div class="portfolio-card card">
+          <div class="portfolio-image">
+            <img src={project.image} alt={project.name} />
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-header">
+              <h2>{project.name}</h2>
+              <a href={project.url} target="_blank" rel="noopener" class="portfolio-link">
+                <Icon name="external-link" size={18} />
+              </a>
+            </div>
+            <p class="portfolio-description">{project.description}</p>
+            
+            <div class="portfolio-meta">
+              <div class="portfolio-stack">
+                {project.stack.map(tech => (
+                  <span class="tech-badge">{tech}</span>
+                ))}
+              </div>
+              <div class="portfolio-services">
+                {project.services.map(service => (
+                  <span class="service-tag">{service}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Хотите такой же результат?</h2>
+      <p>
+        Обсудим ваш проект — расскажу, как можно улучшить сайт и привлечь больше клиентов.
+      </p>
+      <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="btn btn-primary">
+        <Icon name="send" size={16} />
+        Написать в Telegram
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-description {
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin-bottom: var(--space-10);
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+  
+  .portfolio-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-6);
+    overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .portfolio-image {
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+  
+  .portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .portfolio-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .portfolio-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+  
+  .portfolio-header h2 {
+    margin: 0;
+    font-size: var(--text-xl);
+  }
+  
+  .portfolio-link {
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+  }
+  
+  .portfolio-link:hover {
+    color: var(--color-accent);
+  }
+  
+  .portfolio-description {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-4);
+    line-height: var(--leading-relaxed);
+  }
+  
+  .portfolio-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .portfolio-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  
+  .tech-badge {
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+  }
+  
+  .portfolio-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  
+  .service-tag {
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-accent-subtle);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+</style>
