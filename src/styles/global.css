@@ -100,6 +100,7 @@ html {
   scroll-behavior: smooth;
   background: var(--color-bg);
   color: var(--color-text);
+  overflow-x: hidden;
 }
 
 body {
@@ -558,11 +559,13 @@ hr {
    ========================================== */
 
 .card {
+  position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   transition: all var(--transition-base);
+  overflow: hidden;
 }
 
 .card:hover {
@@ -1544,24 +1547,19 @@ pre:hover .copy-btn {
    CARD HOVER GLOW
    ========================================== */
 
-.card {
-  position: relative;
-}
-
 .card::after {
   content: '';
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
   background: var(--gradient-accent);
   opacity: 0;
-  z-index: -1;
   transition: opacity var(--transition-base);
-  filter: blur(8px);
+  pointer-events: none;
 }
 
 .card:hover::after {
-  opacity: 0.15;
+  opacity: 0.06;
 }
 
 /* ==========================================
