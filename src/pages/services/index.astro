@@ -9,10 +9,11 @@ const serviceGroups = [
     description: "Создаю сайты любой сложности — от одностраничника до интернет-магазина. Под ключ, с гарантией.",
     link: "/services/razrabotka-sajtov/",
     price: "от 90 000 ₽",
+    features: ["Уникальный дизайн", "Адаптивная вёрстка", "CMS с админкой", "SEO-оптимизация"],
     children: [
-      { title: "Лендинги", price: "от 90 000 ₽", link: "/services/landing/", description: "Продающие одностраничники с фокусом на конверсию" },
-      { title: "Корпоративные сайты", price: "от 160 000 ₽", link: "/services/korporativnyj-sajt/", description: "Многостраничные сайты для компаний" },
-      { title: "Интернет-магазины", price: "от 300 000 ₽", link: "/services/internet-magazin/", description: "Каталог, корзина, оплата, интеграция с 1С" },
+      { title: "Лендинги", price: "от 90 000 ₽", link: "/services/landing/", description: "Продающие одностраничники с фокусом на конверсию", features: ["Адаптивный дизайн", "Формы захвата", "Интеграция с CRM", "Аналитика"] },
+      { title: "Корпоративные сайты", price: "от 160 000 ₽", link: "/services/korporativnyj-sajt/", description: "Многостраничные сайты для компаний", features: ["До 15 страниц", "Уникальный дизайн", "Админ-панель", "SEO-оптимизация"] },
+      { title: "Интернет-магазины", price: "от 300 000 ₽", link: "/services/internet-magazin/", description: "Каталог, корзина, оплата, интеграция с 1С", features: ["Каталог и фильтры", "Корзина и оплата", "Интеграция с 1С", "Личный кабинет"] },
     ]
   },
   {
@@ -21,6 +22,7 @@ const serviceGroups = [
     description: "Вывожу сайты в топ поисковых систем. Комплексная работа: аудит, оптимизация, контент, ссылки.",
     link: "/services/seo-prodvizhenie/",
     price: "от 50 000 ₽/мес",
+    features: ["SEO-аудит", "Оптимизация контента", "Наращивание ссылок", "Ежемесячные отчёты"],
     children: []
   },
   {
@@ -29,6 +31,7 @@ const serviceGroups = [
     description: "Обновления, безопасность, резервные копии, мелкие доработки. Чтобы сайт работал без сбоев.",
     link: "/services/podderzhka-sajtov/",
     price: "от 20 000 ₽/мес",
+    features: ["Обновления CMS", "Резервные копии", "Мониторинг", "Мелкие доработки"],
     children: []
   }
 ];
@@ -38,34 +41,49 @@ const serviceGroups = [
   <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <h1>Услуги</h1>
     <p class="page-description">
-      Полный цикл: от дизайна до продвижения. Работаю на результат — сайт должен приносить клиентов.
+      Полный цикл: от дизайна до продвижения. Работаю на результат —
+      сайт должен приносить клиентов.
     </p>
     
     <div class="services-catalog">
       {serviceGroups.map(group => (
         <div class="service-group">
-          <a href={group.link} class="service-group-header card">
-            <div class="service-group-info">
+          <div class="service-group-card card">
+            <div class="service-group-top">
               <div class="service-group-icon">
                 <Icon name={group.icon} size={24} />
               </div>
-              <div>
-                <h2>{group.title}</h2>
-                <p>{group.description}</p>
+              <div class="service-group-info">
+                <h2><a href={group.link}>{group.title}</a></h2>
+                <p class="service-group-desc">{group.description}</p>
+                <ul class="service-group-features">
+                  {group.features.map(f => (
+                    <li>✓ {f}</li>
+                  ))}
+                </ul>
               </div>
             </div>
-            <span class="service-group-price">{group.price}</span>
-          </a>
+            <div class="service-group-bottom">
+              <span class="service-group-price">{group.price}</span>
+              <a href={group.link} class="btn btn-secondary">Подробнее</a>
+            </div>
+          </div>
           
           {group.children.length > 0 && (
             <div class="service-children">
               {group.children.map(child => (
                 <a href={child.link} class="service-child card card-link">
-                  <div>
-                    <h3>{child.title}</h3>
-                    <p>{child.description}</p>
+                  <h3>{child.title}</h3>
+                  <p class="service-child-desc">{child.description}</p>
+                  <ul class="service-child-features">
+                    {child.features.map(f => (
+                      <li>✓ {f}</li>
+                    ))}
+                  </ul>
+                  <div class="service-child-footer">
+                    <span class="service-child-price">{child.price}</span>
+                    <span class="btn btn-secondary btn-sm">Заказать</span>
                   </div>
-                  <span class="service-child-price">{child.price}</span>
                 </a>
               ))}
             </div>
@@ -74,7 +92,6 @@ const serviceGroups = [
       ))}
     </div>
     
-    <!-- CTA -->
     <div class="cta-section">
       <h2>Не нашли подходящую услугу?</h2>
       <p>Напишите мне — обсудим вашу задачу и найдём решение.</p>
@@ -97,22 +114,15 @@ const serviceGroups = [
     gap: var(--space-6);
   }
 
-  .service-group-header {
+  /* Group card */
+  .service-group-card {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: inherit;
-    gap: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-6);
   }
 
-  .service-group-header:hover {
-    color: inherit;
-  }
-
-  .service-group-info {
+  .service-group-top {
     display: flex;
-    align-items: flex-start;
     gap: var(--space-4);
   }
 
@@ -128,75 +138,119 @@ const serviceGroups = [
     flex-shrink: 0;
   }
 
-  .service-group-header h2 {
-    font-size: var(--text-xl);
-    margin: 0 0 var(--space-1);
+  .service-group-info {
+    flex: 1;
   }
 
-  .service-group-header p {
+  .service-group-info h2 {
+    font-size: var(--text-xl);
+    margin: 0 0 var(--space-2);
+  }
+
+  .service-group-info h2 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .service-group-info h2 a:hover {
+    color: var(--color-accent);
+  }
+
+  .service-group-desc {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
+    margin: 0 0 var(--space-4);
+  }
+
+  .service-group-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
 
-  .service-group-price {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--color-accent);
-    white-space: nowrap;
+  .service-group-features li {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
   }
 
+  .service-group-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-group-price {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  /* Children */
   .service-children {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-3);
     margin-top: var(--space-3);
-    padding-left: var(--space-8);
   }
 
   @media (max-width: 768px) {
     .service-children {
       grid-template-columns: 1fr;
-      padding-left: var(--space-4);
-    }
-    
-    .service-group-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    .service-group-price {
-      margin-left: calc(48px + var(--space-4));
     }
   }
 
   .service-child {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: var(--space-3);
-    padding: var(--space-4);
-    border-left: 2px solid var(--color-border);
-  }
-
-  .service-child:hover {
-    border-left-color: var(--color-accent);
   }
 
   .service-child h3 {
     font-size: var(--text-base);
-    margin: 0 0 var(--space-1);
+    margin: 0;
   }
 
-  .service-child p {
+  .service-child-desc {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
     margin: 0;
   }
 
+  .service-child-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .service-child-features li {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    padding: var(--space-1) 0;
+  }
+
+  .service-child-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto;
+  }
+
   .service-child-price {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-accent);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
   }
 </style>
