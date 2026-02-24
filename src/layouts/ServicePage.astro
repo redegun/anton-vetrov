@@ -1,0 +1,212 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  subtitle: string;
+  cta_text?: string;
+  cta_link?: string;
+  stats?: { value: string; label: string }[];
+  features?: { icon: string; title: string; text: string }[];
+  features_title?: string;
+  steps?: { number: number; title: string; duration: string; text: string }[];
+  steps_title?: string;
+  technologies?: { name: string }[];
+  plans?: { name: string; price: string; features: string[]; highlighted?: boolean }[];
+  pricing_title?: string;
+  pricing_note?: string;
+  cases?: { image: string; title: string; result: string; link?: string }[];
+  cases_title?: string;
+  reviews?: { text: string; author: string; company?: string }[];
+  faq?: { question: string; answer: string }[];
+  cta_title?: string;
+  cta_body?: string;
+  slug: string;
+}
+
+const {
+  title, description, h1, subtitle,
+  cta_text = "Обсудить проект",
+  cta_link = "https://t.me/antonneprosto",
+  stats, features, features_title = "Что входит",
+  steps, steps_title = "Как я работаю",
+  technologies, plans, pricing_title = "Стоимость",
+  pricing_note, cases, cases_title = "Примеры работ",
+  reviews, faq,
+  cta_title = "Готовы начать проект?",
+  cta_body = "Напишите мне — обсудим задачу, сроки и стоимость. Консультация бесплатно.",
+  slug
+} = Astro.props;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": h1,
+  "description": subtitle,
+  "provider": {
+    "@type": "Person",
+    "name": "Антон Ветров",
+    "url": "https://antonvetrov.ru"
+  },
+  ...(plans && plans.length > 0 ? {
+    "offers": {
+      "@type": "Offer",
+      "price": plans[0].price.replace(/[^\d]/g, ''),
+      "priceCurrency": "RUB"
+    }
+  } : {})
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <div class="container" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
+
+    <!-- Breadcrumbs -->
+    <Breadcrumbs items={[
+      { label: "Главная", href: "/" },
+      { label: "Услуги", href: "/services/" },
+      { label: h1 }
+    ]} />
+
+    <!-- 1. Hero -->
+    <section class="service-hero">
+      <h1>{h1}</h1>
+      <p class="service-hero-subtitle">{subtitle}</p>
+      <a href={cta_link} target="_blank" rel="noopener" class="btn btn-primary">{cta_text}</a>
+      {stats && stats.length > 0 && (
+        <div class="service-stats">
+          {stats.map(s => (
+            <div class="service-stat">
+              <span class="service-stat-value">{s.value}</span>
+              <span class="service-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- 2. Features -->
+    {features && features.length > 0 && (
+      <section class="service-section">
+        <h2>{features_title}</h2>
+        <div class="service-features-grid">
+          {features.map(f => (
+            <div class="service-feature-card card">
+              <div class="service-feature-icon">{f.icon}</div>
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 3. Steps / Timeline -->
+    {steps && steps.length > 0 && (
+      <section class="service-section">
+        <h2>{steps_title}</h2>
+        <div class="service-timeline">
+          {steps.map(s => (
+            <div class="timeline-item">
+              <div class="timeline-number">{s.number}</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>{s.title}</h3>
+                  <span class="timeline-duration">{s.duration}</span>
+                </div>
+                <p>{s.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 4. Technologies -->
+    {technologies && technologies.length > 0 && (
+      <section class="service-section">
+        <h2>Технологии</h2>
+        <div class="service-tech-list">
+          {technologies.map(t => (
+            <span class="service-tech-badge">{t.name}</span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 5. Pricing -->
+    {plans && plans.length > 0 && (
+      <section class="service-section">
+        <h2>{pricing_title}</h2>
+        <div class={`service-plans service-plans-${plans.length}`}>
+          {plans.map(plan => (
+            <div class={`service-plan card ${plan.highlighted ? 'service-plan-highlighted' : ''}`}>
+              <h3>{plan.name}</h3>
+              <div class="service-plan-price">{plan.price}</div>
+              <ul class="service-plan-features">
+                {plan.features.map(f => (
+                  <li class={f.startsWith('✗') ? 'disabled' : ''}>{f}</li>
+                ))}
+              </ul>
+              <a href={cta_link} target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%">Заказать</a>
+            </div>
+          ))}
+        </div>
+        {pricing_note && <p class="service-pricing-note">{pricing_note}</p>}
+      </section>
+    )}
+
+    <!-- 6. Cases -->
+    {cases && cases.length > 0 && (
+      <section class="service-section">
+        <h2>{cases_title}</h2>
+        <div class="service-cases-grid">
+          {cases.map(c => (
+            <div class="service-case card">
+              <img src={c.image} alt={c.title} loading="lazy" />
+              <h3>{c.title}</h3>
+              <p>{c.result}</p>
+              {c.link && <a href={c.link} class="btn btn-secondary" style="margin-top: var(--space-2)">Подробнее</a>}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 7. Reviews -->
+    {reviews && reviews.length > 0 && (
+      <section class="service-section">
+        <h2>Что говорят клиенты</h2>
+        <div class="service-reviews">
+          {reviews.map(r => (
+            <blockquote class="service-review card">
+              <p>«{r.text}»</p>
+              <footer>— {r.author}{r.company ? `, ${r.company}` : ''}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 8. FAQ -->
+    {faq && faq.length > 0 && (
+      <FAQ items={faq} />
+    )}
+
+    <!-- 9. CTA -->
+    <section class="cta-section" style="margin-top: var(--space-16);">
+      <h2>{cta_title}</h2>
+      <p>{cta_body}</p>
+      <a href={cta_link} target="_blank" rel="noopener" class="btn btn-primary">{cta_text}</a>
+    </section>
+
+    <!-- Slot for extra content -->
+    <slot />
+  </div>
+</BaseLayout>
