@@ -1,0 +1,40 @@
+---
+interface Props {
+  services: {
+    title: string;
+    description: string;
+    price: string;
+  }[];
+}
+
+const { services } = Astro.props;
+
+const schema = services.map(s => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": {
+    "@type": "Person",
+    "name": "Антон Ветров",
+    "url": "https://antonvetrov.ru"
+  },
+  "name": s.title,
+  "description": s.description,
+  "offers": {
+    "@type": "Offer",
+    "price": s.price.replace(/[^\d]/g, ''),
+    "priceCurrency": "RUB",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": s.price.replace(/[^\d]/g, ''),
+      "priceCurrency": "RUB"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Россия"
+  }
+}));
+---
+{schema.map(s => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

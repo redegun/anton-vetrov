@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 
 const services = [
   {
@@ -49,6 +50,7 @@ const services = [
 ---
 
 <BaseLayout title="Услуги | Антон Ветров" description="Разработка сайтов, SEO-продвижение, техническая поддержка — цены и условия">
+  <ServiceSchema services={services.map(s => ({ title: s.title, description: s.description, price: s.price }))} />
   <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <h1>Услуги</h1>
     <p class="page-description">

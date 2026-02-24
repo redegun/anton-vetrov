@@ -1,0 +1,30 @@
+---
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Антон Ветров — разработка сайтов и SEO",
+  "url": "https://antonvetrov.ru",
+  "logo": "https://antonvetrov.ru/favicon.svg",
+  "description": "Разработка сайтов, SEO-продвижение и техническая поддержка. 15+ лет опыта, 200+ проектов.",
+  "founder": {
+    "@type": "Person",
+    "name": "Антон Ветров",
+    "url": "https://antonvetrov.ru",
+    "sameAs": [
+      "https://t.me/antonneprosto"
+    ]
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Россия"
+  },
+  "serviceType": ["Разработка сайтов", "SEO-продвижение", "Техническая поддержка", "Автоматизация"],
+  "priceRange": "от 20 000 ₽",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://t.me/antonneprosto"
+  }
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
