@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { categoryToSlug, slugToCategory } from '../../../utils/slugify';
 
 const base = import.meta.env.BASE_URL;
 
 export async function getStaticPaths() {
+  const { categoryToSlug } = await import('../../../utils/slugify');
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const categories = [...new Set(posts.map(p => p.data.category))];
   return categories.map(cat => ({
-    params: { category: cat.toLowerCase() },
+    params: { category: categoryToSlug(cat) },
     props: { categoryName: cat, posts: posts.filter(p => p.data.category === cat).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) }
   }));
 }
@@ -35,7 +37,7 @@ const formatDate = (date: Date) => {
         Все
       </a>
       {categories.map(cat => (
-        <a href={`${base}blog/category/${cat.toLowerCase()}/`} class={`btn btn-secondary${cat === categoryName ? ' active' : ''}`} style="padding: var(--space-2) var(--space-4); font-size: var(--text-xs);">
+        <a href={`${base}blog/category/${categoryToSlug(cat)}/`} class={`btn btn-secondary${cat === categoryName ? ' active' : ''}`} style="padding: var(--space-2) var(--space-4); font-size: var(--text-xs);">
           {cat}
         </a>
       ))}

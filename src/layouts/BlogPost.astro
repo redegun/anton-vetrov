@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { categoryToSlug } from '../utils/slugify';
 import TOC from '../components/TOC.astro';
 import Author from '../components/Author.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
@@ -48,7 +49,7 @@ const formatDate = (date: Date) => {
         <div class="blog-meta">
           <span>{formatDate(pubDate)}</span>
           <span class="separator"></span>
-          <a href={`${base}blog/category/${category.toLowerCase()}/`} class="category-badge">{category}</a>
+          <a href={`${base}blog/category/${categoryToSlug(category)}/`} class="category-badge">{category}</a>
         </div>
         <h1>{title}</h1>
         <p class="article-description">{description}</p>
