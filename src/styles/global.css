@@ -959,6 +959,27 @@ hr {
   text-decoration: underline;
 }
 
+/* Headings with autolink anchors — keep white */
+.prose h1 a,
+.prose h2 a,
+.prose h3 a,
+.prose h4 a,
+.prose h5 a,
+.prose h6 a {
+  color: var(--color-text);
+  font-weight: inherit;
+}
+
+.prose h1 a:hover,
+.prose h2 a:hover,
+.prose h3 a:hover,
+.prose h4 a:hover,
+.prose h5 a:hover,
+.prose h6 a:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
 /* ==========================================
    UTILITIES
    ========================================== */
