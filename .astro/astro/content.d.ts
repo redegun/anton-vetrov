@@ -152,6 +152,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"chatgpt-go-podpiska.md": {
+	id: "chatgpt-go-podpiska.md";
+  slug: "chatgpt-go-podpiska";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "chatgpt-plus-podpiska.md": {
 	id: "chatgpt-plus-podpiska.md";
   slug: "chatgpt-plus-podpiska";
@@ -173,9 +180,23 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"claude-pro-vs-max.md": {
+	id: "claude-pro-vs-max.md";
+  slug: "claude-pro-vs-max";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "cursor-ai-podpiska.md": {
 	id: "cursor-ai-podpiska.md";
   slug: "cursor-ai-podpiska";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"cursor-pro-vs-business.md": {
+	id: "cursor-pro-vs-business.md";
+  slug: "cursor-pro-vs-business";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
