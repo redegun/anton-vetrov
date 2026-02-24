@@ -152,6 +152,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"adaptivnyj-dizajn.md": {
+	id: "adaptivnyj-dizajn.md";
+  slug: "adaptivnyj-dizajn";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "chatgpt-go-podpiska.md": {
 	id: "chatgpt-go-podpiska.md";
   slug: "chatgpt-go-podpiska";
@@ -169,6 +176,13 @@ declare module 'astro:content' {
 "chatgpt-plus-vs-pro.md": {
 	id: "chatgpt-plus-vs-pro.md";
   slug: "chatgpt-plus-vs-pro";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"chto-takoe-crm-integracija.md": {
+	id: "chto-takoe-crm-integracija.md";
+  slug: "chto-takoe-crm-integracija";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -236,6 +250,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"landing-vs-sajt.md": {
+	id: "landing-vs-sajt.md";
+  slug: "landing-vs-sajt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "luchshie-hostingi-2025.md": {
 	id: "luchshie-hostingi-2025.md";
   slug: "luchshie-hostingi-2025";
@@ -267,6 +288,20 @@ declare module 'astro:content' {
 "seo-dlya-novichkov.md": {
 	id: "seo-dlya-novichkov.md";
   slug: "seo-dlya-novichkov";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"skolko-stoit-sajt.md": {
+	id: "skolko-stoit-sajt.md";
+  slug: "skolko-stoit-sajt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"tz-na-sajt.md": {
+	id: "tz-na-sajt.md";
+  slug: "tz-na-sajt";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
