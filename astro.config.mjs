@@ -4,8 +4,8 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 export default defineConfig({
-  site: 'https://redegun.github.io',
-  base: '/anton-vetrov/',
+  site: 'https://antonvetrov.ru',
+  base: '/',
   integrations: [mdx()],
   markdown: {
     rehypePlugins: [
