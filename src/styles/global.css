@@ -659,7 +659,8 @@ hr {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-8);
-  overflow-x: hidden;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {
