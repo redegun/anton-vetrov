@@ -1380,6 +1380,210 @@ hr {
 }
 
 /* ==========================================
+   READING PROGRESS BAR
+   ========================================== */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gradient-accent);
+  z-index: 200;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ==========================================
+   SCROLL TO TOP
+   ========================================== */
+
+.scroll-top {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition-base), transform var(--transition-base), background var(--transition-fast);
+  pointer-events: none;
+  z-index: 50;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+  color: var(--color-accent);
+}
+
+/* ==========================================
+   BURGER MENU
+   ========================================== */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  z-index: 110;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 480px) {
+  .burger {
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    background: var(--color-bg);
+    border-left: 1px solid var(--color-border);
+    flex-direction: column;
+    padding: calc(var(--header-height) + var(--space-6)) var(--space-6) var(--space-6);
+    gap: var(--space-1) !important;
+    transition: right var(--transition-slow);
+    z-index: 105;
+  }
+  
+  .nav.nav-open {
+    right: 0;
+  }
+  
+  .nav a {
+    font-size: var(--text-base) !important;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+/* ==========================================
+   TOC ACTIVE STATE
+   ========================================== */
+
+.toc-list a.toc-active {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ==========================================
+   COPY BUTTON ON CODE
+   ========================================== */
+
+.copy-btn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+}
+
+pre:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+/* ==========================================
+   CARD HOVER GLOW
+   ========================================== */
+
+.card {
+  position: relative;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-accent);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-base);
+  filter: blur(8px);
+}
+
+.card:hover::after {
+  opacity: 0.15;
+}
+
+/* ==========================================
+   FADE ON SCROLL
+   ========================================== */
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-on-scroll.faded-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   SCROLL OFFSET FOR ANCHORS
+   ========================================== */
+
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+/* ==========================================
    UTILITIES
    ========================================== */
 

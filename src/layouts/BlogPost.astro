@@ -22,6 +22,12 @@ interface Props {
 
 const { title, description, pubDate, updatedDate, heroImage, category, author, headings, slug } = Astro.props;
 
+// Reading time estimate
+const rawContent = await Astro.slots.render('default');
+const textContent = rawContent.replace(/<[^>]*>/g, '');
+const wordCount = textContent.trim().split(/\s+/).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
+
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('ru-RU', {
     year: 'numeric',
@@ -50,6 +56,8 @@ const formatDate = (date: Date) => {
           <span>{formatDate(pubDate)}</span>
           <span class="separator"></span>
           <a href={`${base}blog/category/${categoryToSlug(category)}/`} class="category-badge">{category}</a>
+          <span class="separator"></span>
+          <span>{readingTime} мин чтения</span>
         </div>
         <h1>{title}</h1>
         <p class="article-description">{description}</p>
@@ -61,6 +69,8 @@ const formatDate = (date: Date) => {
           src={heroImage} 
           alt={title} 
           class="article-hero"
+          loading="lazy"
+          decoding="async"
         />
       )}
       

@@ -155,7 +155,7 @@ const portfolio = [
       {portfolio.map((project) => (
         <a href={project.url} target="_blank" rel="noopener" class="portfolio-card-home">
           <div class="portfolio-image-home">
-            <img src={project.image} alt={project.name} />
+            <img src={project.image} alt={project.name} loading="lazy" decoding="async" />
           </div>
           <div class="portfolio-info-home">
             <h3>{project.name}</h3>
