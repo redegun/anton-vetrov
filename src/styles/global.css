@@ -91,6 +91,16 @@
   box-sizing: border-box;
 }
 
+/* Hide scrollbar on touch devices */
+@media (pointer: coarse) {
+  html {
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 html {
   font-family: var(--font-sans);
   font-size: 16px;
