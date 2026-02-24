@@ -159,6 +159,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"chatgpt-plus-vs-pro.md": {
+	id: "chatgpt-plus-vs-pro.md";
+  slug: "chatgpt-plus-vs-pro";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"claude-ai-podpiska.md": {
+	id: "claude-ai-podpiska.md";
+  slug: "claude-ai-podpiska";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "cursor-ai-podpiska.md": {
 	id: "cursor-ai-podpiska.md";
   slug: "cursor-ai-podpiska";
@@ -166,9 +180,30 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"cursor-vs-copilot.md": {
+	id: "cursor-vs-copilot.md";
+  slug: "cursor-vs-copilot";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"github-copilot-podpiska.md": {
+	id: "github-copilot-podpiska.md";
+  slug: "github-copilot-podpiska";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-oplatit-chatgpt-iz-rossii.md": {
 	id: "kak-oplatit-chatgpt-iz-rossii.md";
   slug: "kak-oplatit-chatgpt-iz-rossii";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-oplatit-nejroset-iz-rossii.md": {
+	id: "kak-oplatit-nejroset-iz-rossii.md";
+  slug: "kak-oplatit-nejroset-iz-rossii";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -183,6 +218,13 @@ declare module 'astro:content' {
 "luchshie-hostingi-2025.md": {
 	id: "luchshie-hostingi-2025.md";
   slug: "luchshie-hostingi-2025";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"midjourney-podpiska.md": {
+	id: "midjourney-podpiska.md";
+  slug: "midjourney-podpiska";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
