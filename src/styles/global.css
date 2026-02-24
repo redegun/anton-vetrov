@@ -100,12 +100,12 @@ html {
   scroll-behavior: smooth;
   background: var(--color-bg);
   color: var(--color-text);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Selection */
@@ -1488,15 +1488,13 @@ hr {
     flex-direction: column;
     padding: calc(var(--header-height) + var(--space-6)) var(--space-6) var(--space-6);
     gap: var(--space-1) !important;
-    transform: translateX(100%);
+    transform: translateX(110%);
     transition: transform var(--transition-slow);
     z-index: 105;
-    visibility: hidden;
   }
   
   .nav.nav-open {
     transform: translateX(0);
-    visibility: visible;
   }
   
   .nav a {
