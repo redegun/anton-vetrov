@@ -1,87 +1,75 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
-import ServiceSchema from '../../components/ServiceSchema.astro';
 
-const services = [
+const serviceGroups = [
   {
-    title: 'Лендинги',
-    description: 'Продающие одностраничники с фокусом на конверсию. Идеальны для рекламных кампаний, запуска продуктов, акций.',
-    icon: 'zap',
-    price: 'от 90 000 ₽',
-    features: ['Адаптивный дизайн', 'Формы захвата', 'Интеграция с CRM', 'Аналитика']
+    title: "Разработка сайтов",
+    icon: "code",
+    description: "Создаю сайты любой сложности — от одностраничника до интернет-магазина. Под ключ, с гарантией.",
+    link: "/services/razrabotka-sajtov/",
+    price: "от 90 000 ₽",
+    children: [
+      { title: "Лендинги", price: "от 90 000 ₽", link: "/services/landing/", description: "Продающие одностраничники с фокусом на конверсию" },
+      { title: "Корпоративные сайты", price: "от 160 000 ₽", link: "/services/korporativnyj-sajt/", description: "Многостраничные сайты для компаний" },
+      { title: "Интернет-магазины", price: "от 300 000 ₽", link: "/services/internet-magazin/", description: "Каталог, корзина, оплата, интеграция с 1С" },
+    ]
   },
   {
-    title: 'Корпоративные сайты',
-    description: 'Многостраничные сайты для компаний. Представительство в интернете, каталог услуг, портфолио.',
-    icon: 'layers',
-    price: 'от 160 000 ₽',
-    features: ['До 15 страниц', 'Уникальный дизайн', 'Админ-панель', 'SEO-оптимизация']
+    title: "SEO-продвижение",
+    icon: "search",
+    description: "Вывожу сайты в топ поисковых систем. Комплексная работа: аудит, оптимизация, контент, ссылки.",
+    link: "/services/seo-prodvizhenie/",
+    price: "от 50 000 ₽/мес",
+    children: []
   },
   {
-    title: 'Интернет-магазины',
-    description: 'Полноценные магазины с каталогом, корзиной, оплатой и личным кабинетом.',
-    icon: 'globe',
-    price: 'от 300 000 ₽',
-    features: ['Каталог товаров', 'Корзина и оплата', 'Интеграция с 1С', 'Фильтры и поиск']
-  },
-  {
-    title: 'SEO-продвижение',
-    description: 'Вывод сайта в топ Яндекса и Google. Аудит, оптимизация, ссылочное продвижение.',
-    icon: 'trending-up',
-    price: 'от 50 000 ₽/мес',
-    features: ['Технический аудит', 'Семантическое ядро', 'Контент-план', 'Ежемесячные отчёты']
-  },
-  {
-    title: 'Техническая поддержка',
-    description: 'Обновление, доработки, исправление багов, резервное копирование, защита от взлома.',
-    icon: 'settings',
-    price: 'от 20 000 ₽/мес',
-    features: ['Мониторинг 24/7', 'Резервные копии', 'Обновления', 'Консультации']
-  },
-  {
-    title: 'Автоматизация',
-    description: 'Интеграция сайта с CRM, 1С, складом. Автоматические отчёты, уведомления, боты.',
-    icon: 'bot',
-    price: 'от 80 000 ₽',
-    features: ['Интеграции API', 'Telegram-боты', 'Автоотчёты', 'Скрипты']
+    title: "Техподдержка сайтов",
+    icon: "settings",
+    description: "Обновления, безопасность, резервные копии, мелкие доработки. Чтобы сайт работал без сбоев.",
+    link: "/services/podderzhka-sajtov/",
+    price: "от 20 000 ₽/мес",
+    children: []
   }
 ];
 ---
 
 <BaseLayout title="Услуги | Антон Ветров" description="Разработка сайтов, SEO-продвижение, техническая поддержка — цены и условия">
-  <ServiceSchema services={services.map(s => ({ title: s.title, description: s.description, price: s.price }))} />
   <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <h1>Услуги</h1>
     <p class="page-description">
       Полный цикл: от дизайна до продвижения. Работаю на результат — сайт должен приносить клиентов.
     </p>
     
-    <div class="services-detailed">
-      {services.map((service, index) => (
-        <div class="service-block card">
-          <div class="service-header">
-            <div class="service-icon-large">
-              <Icon name={service.icon} size={28} />
+    <div class="services-catalog">
+      {serviceGroups.map(group => (
+        <div class="service-group">
+          <a href={group.link} class="service-group-header card">
+            <div class="service-group-info">
+              <div class="service-group-icon">
+                <Icon name={group.icon} size={24} />
+              </div>
+              <div>
+                <h2>{group.title}</h2>
+                <p>{group.description}</p>
+              </div>
             </div>
-            <div>
-              <h2>{service.title}</h2>
-              <p class="service-description">{service.description}</p>
-            </div>
-          </div>
-          <div class="service-body">
-            <ul class="service-features">
-              {service.features.map(feature => (
-                <li>{feature}</li>
+            <span class="service-group-price">{group.price}</span>
+          </a>
+          
+          {group.children.length > 0 && (
+            <div class="service-children">
+              {group.children.map(child => (
+                <a href={child.link} class="service-child card card-link">
+                  <div>
+                    <h3>{child.title}</h3>
+                    <p>{child.description}</p>
+                  </div>
+                  <span class="service-child-price">{child.price}</span>
+                </a>
               ))}
-            </ul>
-            <div class="service-footer">
-              <span class="service-price-large">{service.price}</span>
-              <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-secondary">
-                Заказать
-              </a>
             </div>
-          </div>
+          )}
         </div>
       ))}
     </div>
@@ -89,11 +77,8 @@ const services = [
     <!-- CTA -->
     <div class="cta-section">
       <h2>Не нашли подходящую услугу?</h2>
-      <p>
-        Напишите мне — обсудим вашу задачу и найдём решение.
-      </p>
+      <p>Напишите мне — обсудим вашу задачу и найдём решение.</p>
       <a href="https://t.me/antonneprosto" target="_blank" rel="noopener" class="btn btn-primary">
-        <Icon name="send" size={16} />
         Написать в Telegram
       </a>
     </div>
@@ -106,99 +91,112 @@ const services = [
     max-width: 560px;
     margin-bottom: var(--space-10);
   }
-  
-  .services-detailed {
+
+  .services-catalog {
     display: grid;
     gap: var(--space-6);
   }
-  
-  .service-block {
-    display: grid;
-    gap: var(--space-6);
-  }
-  
-  @media (min-width: 768px) {
-    .service-block {
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
-    }
-  }
-  
-  .service-header {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-  }
-  
-  .service-icon-large {
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-subtle);
-    border-radius: var(--radius-lg);
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-  
-  .service-header h2 {
-    margin: 0 0 var(--space-2);
-    font-size: var(--text-xl);
-  }
-  
-  .service-description {
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-  }
-  
-  .service-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  
-  .service-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
-  }
-  
-  @media (max-width: 480px) {
-    .service-features {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .service-features li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-  }
-  
-  .service-features li::before {
-    content: '✓';
-    color: var(--color-accent);
-    font-weight: bold;
-  }
-  
-  .service-footer {
+
+  .service-group-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    gap: var(--space-4);
   }
-  
-  .service-price-large {
+
+  .service-group-header:hover {
+    color: inherit;
+  }
+
+  .service-group-info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .service-group-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-subtle);
+    border-radius: var(--radius-md);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .service-group-header h2 {
     font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-text);
+    margin: 0 0 var(--space-1);
+  }
+
+  .service-group-header p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .service-group-price {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
+  .service-children {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+    padding-left: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .service-children {
+      grid-template-columns: 1fr;
+      padding-left: var(--space-4);
+    }
+    
+    .service-group-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .service-group-price {
+      margin-left: calc(48px + var(--space-4));
+    }
+  }
+
+  .service-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-left: 2px solid var(--color-border);
+  }
+
+  .service-child:hover {
+    border-left-color: var(--color-accent);
+  }
+
+  .service-child h3 {
+    font-size: var(--text-base);
+    margin: 0 0 var(--space-1);
+  }
+
+  .service-child p {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .service-child-price {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
   }
 </style>
