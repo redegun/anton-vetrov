@@ -306,6 +306,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"vertikalnaya-polosa-sprava-na-mobilnom.md": {
+	id: "vertikalnaya-polosa-sprava-na-mobilnom.md";
+  slug: "vertikalnaya-polosa-sprava-na-mobilnom";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};
