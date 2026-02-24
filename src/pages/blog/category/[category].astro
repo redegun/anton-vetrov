@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const categories = [...new Set(posts.map(p => p.data.category))];
+  return categories.map(cat => ({
+    params: { category: cat.toLowerCase() },
+    props: { categoryName: cat, posts: posts.filter(p => p.data.category === cat).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) }
+  }));
+}
+
+const { categoryName, posts } = Astro.props;
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const categories = [...new Set(allPosts.map(p => p.data.category))];
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }).replace('.', '');
+};
+---
+
+<BaseLayout title={`${categoryName} | Блог | Антон Ветров`} description={`Статьи в категории ${categoryName}`}>
+  <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
+    <h1>{categoryName}</h1>
+    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+      Статьи в категории «{categoryName}»
+    </p>
+
+    <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-8);">
+      <a href={`${base}blog/`} class="btn btn-secondary" style="padding: var(--space-2) var(--space-4); font-size: var(--text-xs);">
+        Все
+      </a>
+      {categories.map(cat => (
+        <a href={`${base}blog/category/${cat.toLowerCase()}/`} class={`btn btn-secondary${cat === categoryName ? ' active' : ''}`} style="padding: var(--space-2) var(--space-4); font-size: var(--text-xs);">
+          {cat}
+        </a>
+      ))}
+    </div>
+
+    <div class="blog-list">
+      {posts.map((post) => (
+        <a href={`${base}blog/${post.slug}/`} class="card blog-card card-link">
+          <div class="blog-meta">
+            <span>{formatDate(post.data.pubDate)}</span>
+            <span class="separator"></span>
+            <span class="category-badge">{post.data.category}</span>
+          </div>
+          <h3>{post.data.title}</h3>
+          <p class="blog-excerpt">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

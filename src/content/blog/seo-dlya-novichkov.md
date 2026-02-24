@@ -5,7 +5,7 @@ pubDate: 2025-02-18
 category: "SEO"
 tags: ["seo", "продвижение", "поисковики"]
 author: "Антон Ветров"
-heroImage: "/anton-vetrov/images/blog/seo.png"
+heroImage: "/images/blog/seo.png"
 ---
 
 SEO (Search Engine Optimization) — это оптимизация сайта для поисковых систем. Цель — получать бесплатный органический трафик из Яндекса и Google.

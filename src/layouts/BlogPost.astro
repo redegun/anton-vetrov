@@ -41,7 +41,7 @@ const formatDate = (date: Date) => {
     url={Astro.url.href}
   />
   
-  <article class="container" style="padding: var(--space-12) 0 var(--space-20);">
+  <article class="container article-layout" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <div class="content">
       <!-- Header -->
       <header class="article-header">
@@ -63,8 +63,10 @@ const formatDate = (date: Date) => {
         />
       )}
       
-      <!-- TOC -->
-      <TOC headings={headings} />
+      <!-- TOC mobile only -->
+      <div class="toc-mobile">
+        <TOC headings={headings} />
+      </div>
       
       <!-- Content -->
       <div class="prose">
@@ -77,5 +79,10 @@ const formatDate = (date: Date) => {
       <!-- Related posts -->
       <RelatedPosts currentSlug={slug} category={category} />
     </div>
+    
+    <!-- Sidebar TOC desktop -->
+    <aside class="toc-sidebar">
+      <TOC headings={headings} />
+    </aside>
   </article>
 </BaseLayout>

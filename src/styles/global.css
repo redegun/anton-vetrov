@@ -636,6 +636,40 @@ hr {
    TOC (Table of Contents)
    ========================================== */
 
+/* Article layout with sidebar */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .article-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+.toc-mobile {
+  display: block;
+}
+
+.toc-sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .toc-mobile {
+    display: none;
+  }
+  .toc-sidebar {
+    display: block;
+  }
+  .toc-sidebar .toc {
+    position: sticky;
+    top: var(--space-8);
+  }
+}
+
 .toc {
   padding: var(--space-6);
   background: var(--color-bg-elevated);
@@ -914,14 +948,15 @@ hr {
 }
 
 .prose a {
-  color: var(--color-text);
+  color: #60a5fa;
   text-decoration: none;
   font-weight: 500;
-  transition: opacity var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .prose a:hover {
-  opacity: 0.7;
+  color: #93bbfd;
+  text-decoration: underline;
 }
 
 /* ==========================================
