@@ -298,7 +298,6 @@ hr {
 .content {
   max-width: var(--content-width);
   min-width: 0;
-  overflow-x: hidden;
 }
 
 /* ==========================================
