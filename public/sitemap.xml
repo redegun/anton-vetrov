@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://antonvetrov.ru/</loc></url>
-  <url><loc>https://antonvetrov.ru/blog/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/adaptivnyj-dizajn/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/category/ai/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/category/hosting/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/category/razrabotka/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/category/seo/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/chatgpt-go-podpiska/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/chatgpt-plus-podpiska/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/chatgpt-plus-vs-pro/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/chto-takoe-crm-integracija/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/claude-ai-podpiska/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/claude-pro-vs-max/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/cursor-ai-podpiska/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/cursor-pro-vs-business/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/cursor-vs-copilot/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/github-copilot-podpiska/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/kak-oplatit-chatgpt-iz-rossii/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/kak-oplatit-nejroset-iz-rossii/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/kak-vybrat-cms/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/landing-vs-sajt/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/luchshie-hostingi-2025/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/midjourney-podpiska/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/podpiski-na-nejroseti-2025/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/razrabotka-landinga-2025/</loc></url>
   <url><loc>https://antonvetrov.ru/blog/seo-dlya-novichkov/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/skolko-stoit-sajt/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/tz-na-sajt/</loc></url>
+  <url><loc>https://antonvetrov.ru/blog/vertikalnaya-polosa-sprava-na-mobilnom/</loc></url>
   <url><loc>https://antonvetrov.ru/contacts/</loc></url>
+  <url><loc>https://antonvetrov.ru/</loc></url>
   <url><loc>https://antonvetrov.ru/portfolio/</loc></url>
   <url><loc>https://antonvetrov.ru/services/</loc></url>
-  <url>
-    <loc>https://antonvetrov.ru/blog/vertikalnaya-polosa-sprava-na-mobilnom/</loc>
-    <lastmod>2025-06-25</lastmod>
-  </url>
+  <url><loc>https://antonvetrov.ru/services/internet-magazin/</loc></url>
+  <url><loc>https://antonvetrov.ru/services/korporativnyj-sajt/</loc></url>
+  <url><loc>https://antonvetrov.ru/services/landing/</loc></url>
+  <url><loc>https://antonvetrov.ru/services/podderzhka-sajtov/</loc></url>
+  <url><loc>https://antonvetrov.ru/services/razrabotka-sajtov/</loc></url>
+  <url><loc>https://antonvetrov.ru/services/seo-prodvizhenie/</loc></url>
 </urlset>
