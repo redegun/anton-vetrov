@@ -5,6 +5,7 @@ pubDate: 2025-02-23
 category: "Хостинги"
 tags: ["хостинг", "сравнение", "обзор"]
 author: "Антон Ветров"
+heroImage: "/images/blog/hero-hostingi.webp"
 draft: false
 ---
 
@@ -26,7 +27,7 @@ draft: false
 
 ### Timeweb
 
-Один из старейших и надёжных хостингов в России. Отличная поддержка, удобная панель.
+[Timeweb](https://timeweb.com/ru/?i=33633) — один из старейших и надёжных хостингов в России. Отличная поддержка, удобная панель.
 
 **Плюсы:**
 - Быстрая техподдержка 24/7
@@ -92,12 +93,13 @@ draft: false
 | Тип проекта | Рекомендация |
 |-------------|--------------|
 | Статический сайт | Cloudflare Pages, Vercel |
-| WordPress | Timeweb, Beget |
-| MODX | Timeweb |
-| Интернет-магазин | Timeweb, VPS |
+| WordPress | [Timeweb](https://timeweb.com/ru/?i=33633), Beget |
+| MODX | [Timeweb](https://timeweb.com/ru/?i=33633) |
+| Интернет-магазин | [Timeweb](https://timeweb.com/ru/?i=33633), VPS |
+| VPS / Cloud | [Timeweb Cloud](https://timeweb.cloud/?i=33633) |
 
 ## Итоги
 
-Для большинства проектов рекомендую **Timeweb** — надёжно, быстро, хорошая поддержка. Для статики — **Cloudflare Pages** (бесплатно и быстро).
+Для большинства проектов рекомендую **[Timeweb](https://timeweb.com/ru/?i=33633)** — надёжно, быстро, хорошая поддержка. Для облачных серверов (VPS) — **[Timeweb Cloud](https://timeweb.cloud/?i=33633)**. Для статики — **Cloudflare Pages** (бесплатно и быстро).
 
 Если есть вопросы по выбору хостинга — [напишите мне](/contacts/), помогу разобраться.
