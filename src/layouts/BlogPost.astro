@@ -5,6 +5,7 @@ import TOC from '../components/TOC.astro';
 import Author from '../components/Author.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import ArticleSchema from '../components/ArticleSchema.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -50,6 +51,14 @@ const formatDate = (date: Date) => {
   
   <article class="container article-layout" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <div class="content">
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={[
+        { label: "Главная", href: "/" },
+        { label: "Блог", href: "/blog/" },
+        { label: category, href: `/blog/category/${categoryToSlug(category)}/` },
+        { label: title }
+      ]} />
+      
       <!-- Header -->
       <header class="article-header">
         <div class="blog-meta">
