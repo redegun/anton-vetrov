@@ -632,6 +632,16 @@ hr {
   letter-spacing: 0.05em;
 }
 
+.views-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.views-counter svg {
+  opacity: 0.6;
+}
+
 .blog-meta .separator {
   width: 3px;
   height: 3px;

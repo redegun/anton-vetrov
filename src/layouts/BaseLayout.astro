@@ -208,6 +208,22 @@ const base = import.meta.env.BASE_URL;
     }, { threshold: 0.1 });
     fadeEls.forEach(el => fadeObs.observe(el));
   }
+
+  // View counter
+  const viewsEl = document.querySelector('.views-counter');
+  if (viewsEl) {
+    const slug = viewsEl.dataset.slug;
+    if (slug) {
+      // Increment on load
+      fetch(`/api/views.php?slug=${encodeURIComponent(slug)}`, { method: 'POST' })
+        .then(r => r.json())
+        .then(d => {
+          const countEl = viewsEl.querySelector('.views-count');
+          if (countEl && d.views) countEl.textContent = d.views.toLocaleString('ru-RU');
+        })
+        .catch(() => {});
+    }
+  }
 </script>
 </body>
 </html>
