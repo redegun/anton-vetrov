@@ -209,20 +209,31 @@ const base = import.meta.env.BASE_URL;
     fadeEls.forEach(el => fadeObs.observe(el));
   }
 
-  // View counter
-  const viewsEl = document.querySelector('.views-counter');
-  if (viewsEl) {
-    const slug = viewsEl.dataset.slug;
+  // View counters
+  const viewEls = document.querySelectorAll('.views-counter');
+  if (viewEls.length === 1) {
+    // Single article — increment
+    const slug = viewEls[0].dataset.slug;
     if (slug) {
-      // Increment on load
       fetch(`/api/views.php?slug=${encodeURIComponent(slug)}`, { method: 'POST' })
         .then(r => r.json())
         .then(d => {
-          const countEl = viewsEl.querySelector('.views-count');
-          if (countEl && d.views) countEl.textContent = d.views.toLocaleString('ru-RU');
-        })
-        .catch(() => {});
+          const c = viewEls[0].querySelector('.views-count');
+          if (c && d.views != null) c.textContent = d.views.toLocaleString('ru-RU');
+        }).catch(() => {});
     }
+  } else if (viewEls.length > 1) {
+    // Blog list — batch GET
+    const slugs = [...viewEls].map(el => el.dataset.slug).filter(Boolean);
+    fetch(`/api/views-batch.php?slugs=${encodeURIComponent(slugs.join(','))}`)
+      .then(r => r.json())
+      .then(data => {
+        viewEls.forEach(el => {
+          const slug = el.dataset.slug;
+          const c = el.querySelector('.views-count');
+          if (c && data[slug] != null) c.textContent = Number(data[slug]).toLocaleString('ru-RU');
+        });
+      }).catch(() => {});
   }
 </script>
 </body>
