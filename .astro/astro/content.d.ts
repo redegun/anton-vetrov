@@ -229,6 +229,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"gpt-5-3-codex-spark-novaya-ai-model-openai-dlya-kodinga.md": {
+	id: "gpt-5-3-codex-spark-novaya-ai-model-openai-dlya-kodinga.md";
+  slug: "gpt-5-3-codex-spark-novaya-ai-model-openai-dlya-kodinga";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-oplatit-chatgpt-iz-rossii.md": {
 	id: "kak-oplatit-chatgpt-iz-rossii.md";
   slug: "kak-oplatit-chatgpt-iz-rossii";
@@ -239,6 +246,27 @@ declare module 'astro:content' {
 "kak-oplatit-nejroset-iz-rossii.md": {
 	id: "kak-oplatit-nejroset-iz-rossii.md";
   slug: "kak-oplatit-nejroset-iz-rossii";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-podobrat-kljuchevye-slova.md": {
+	id: "kak-podobrat-kljuchevye-slova.md";
+  slug: "kak-podobrat-kljuchevye-slova";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-prodvinut-sajt-v-yandekse.md": {
+	id: "kak-prodvinut-sajt-v-yandekse.md";
+  slug: "kak-prodvinut-sajt-v-yandekse";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-sostavit-semanticheskoe-jadro.md": {
+	id: "kak-sostavit-semanticheskoe-jadro.md";
+  slug: "kak-sostavit-semanticheskoe-jadro";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -264,6 +292,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"meta-tegi-title-description-h1.md": {
+	id: "meta-tegi-title-description-h1.md";
+  slug: "meta-tegi-title-description-h1";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "midjourney-podpiska.md": {
 	id: "midjourney-podpiska.md";
   slug: "midjourney-podpiska";
@@ -285,9 +320,37 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"seo-audit-sajta.md": {
+	id: "seo-audit-sajta.md";
+  slug: "seo-audit-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "seo-dlya-novichkov.md": {
 	id: "seo-dlya-novichkov.md";
   slug: "seo-dlya-novichkov";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"seo-optimizacija-sajta.md": {
+	id: "seo-optimizacija-sajta.md";
+  slug: "seo-optimizacija-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"seo-optimizacija-teksta.md": {
+	id: "seo-optimizacija-teksta.md";
+  slug: "seo-optimizacija-teksta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"seo-prodvizhenie-sajta-samostojatelno.md": {
+	id: "seo-prodvizhenie-sajta-samostojatelno.md";
+  slug: "seo-prodvizhenie-sajta-samostojatelno";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -309,6 +372,20 @@ declare module 'astro:content' {
 "vertikalnaya-polosa-sprava-na-mobilnom.md": {
 	id: "vertikalnaya-polosa-sprava-na-mobilnom.md";
   slug: "vertikalnaya-polosa-sprava-na-mobilnom";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"vneshnie-ssylki-i-ssylochnoe-prodvizhenie.md": {
+	id: "vneshnie-ssylki-i-ssylochnoe-prodvizhenie.md";
+  slug: "vneshnie-ssylki-i-ssylochnoe-prodvizhenie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"vnutrennjaja-optimizacija-sajta.md": {
+	id: "vnutrennjaja-optimizacija-sajta.md";
+  slug: "vnutrennjaja-optimizacija-sajta";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
