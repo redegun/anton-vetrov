@@ -187,6 +187,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"chto-takoe-modx-revolution.md": {
+	id: "chto-takoe-modx-revolution.md";
+  slug: "chto-takoe-modx-revolution";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "claude-ai-podpiska.md": {
 	id: "claude-ai-podpiska.md";
   slug: "claude-ai-podpiska";
@@ -306,6 +313,41 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"modx-dopolneniya-top.md": {
+	id: "modx-dopolneniya-top.md";
+  slug: "modx-dopolneniya-top";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-elementy-shablony-chanki-snippety.md": {
+	id: "modx-elementy-shablony-chanki-snippety.md";
+  slug: "modx-elementy-shablony-chanki-snippety";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-katalog-tovarov.md": {
+	id: "modx-katalog-tovarov.md";
+  slug: "modx-katalog-tovarov";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-prodvinutaya-razrabotka.md": {
+	id: "modx-prodvinutaya-razrabotka.md";
+  slug: "modx-prodvinutaya-razrabotka";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-seo-prodvizhenie.md": {
+	id: "modx-seo-prodvizhenie.md";
+  slug: "modx-seo-prodvizhenie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "openai-mentalnoe-zdorove-obnovlenie-chatgpt.md": {
 	id: "openai-mentalnoe-zdorove-obnovlenie-chatgpt.md";
   slug: "openai-mentalnoe-zdorove-obnovlenie-chatgpt";
@@ -323,6 +365,13 @@ declare module 'astro:content' {
 "razrabotka-landinga-2025.md": {
 	id: "razrabotka-landinga-2025.md";
   slug: "razrabotka-landinga-2025";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"razrabotka-sajta-na-modx.md": {
+	id: "razrabotka-sajta-na-modx.md";
+  slug: "razrabotka-sajta-na-modx";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
