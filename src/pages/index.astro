@@ -20,28 +20,46 @@ const formatDate = (date: Date) => {
 
 const services = [
   {
-    title: 'Лендинги',
-    description: 'Продающие одностраничники с высокой конверсией',
-    icon: 'zap',
-    price: 'от 90 000 ₽'
-  },
-  {
-    title: 'Корпоративные сайты',
-    description: 'Многостраничные сайты для бизнеса',
+    title: 'Сайты на MODX',
+    description: 'Визитки, корпоративные сайты, порталы на MODX Revolution',
     icon: 'layers',
-    price: 'от 160 000 ₽'
+    price: 'от 60 000 ₽',
+    link: '/services/modx-razrabotka/'
   },
   {
     title: 'Интернет-магазины',
-    description: 'Каталоги с корзиной и оплатой',
+    description: 'Каталог, корзина, оплата, доставка на miniShop2',
     icon: 'globe',
-    price: 'от 300 000 ₽'
+    price: 'от 250 000 ₽',
+    link: '/services/modx-internet-magazin/'
+  },
+  {
+    title: 'Интеграции',
+    description: '1С, CRM, оплата, доставка, Telegram, аналитика',
+    icon: 'zap',
+    price: 'от 5 000 ₽',
+    link: '/services/'
   },
   {
     title: 'SEO-продвижение',
-    description: 'Вывод сайта в топ поисковиков',
+    description: 'Вывод сайта в топ Яндекса и Google',
     icon: 'trending-up',
-    price: 'от 50 000 ₽/мес'
+    price: 'от 40 000 ₽/мес',
+    link: '/services/seo-prodvizhenie/'
+  },
+  {
+    title: 'Доработка MODX',
+    description: 'Новый функционал, исправления, редизайн',
+    icon: 'settings',
+    price: 'от 5 000 ₽/час',
+    link: '/services/modx-dorabotka/'
+  },
+  {
+    title: 'Техподдержка',
+    description: 'Мониторинг, бэкапы, обновления, оперативные правки',
+    icon: 'shield',
+    price: 'от 15 000 ₽/мес',
+    link: '/services/modx-podderzhka/'
   }
 ];
 
@@ -73,7 +91,11 @@ const portfolio = [
 ];
 ---
 
-<BaseLayout title="Антон Ветров — разработка сайтов и SEO" image="/images/og-home.png">
+<BaseLayout
+  title="Антон Ветров — разработка сайтов на MODX и SEO-продвижение"
+  description="Разработка сайтов на MODX Revolution, интернет-магазины, интеграции, SEO-продвижение. 20 лет опыта, 60+ проектов. Консультация бесплатно."
+  image="/images/og-home.png"
+>
   <ProfessionalServiceSchema />
   <PersonSchema />
   <!-- Hero -->
@@ -81,12 +103,13 @@ const portfolio = [
     <div class="container">
       <div class="hero-badge">
         <Icon name="sparkles" size={14} />
-        <span>15+ лет в веб-разработке</span>
+        <span>С 2006 года · MODX · SEO</span>
       </div>
-      <h1>Создаю сайты,<br/>которые работают</h1>
+      <h1>Разработка сайтов на MODX<br/>и SEO-продвижение</h1>
       <p>
-        Разработка сайтов под ключ и SEO-продвижение. 
-        От лендинга до интернет-магазина. Быстро, качественно, с гарантией.
+        Делаю сайты, которые приносят клиентов из поиска. 
+        Специализация — MODX Revolution: чистая архитектура, SEO из коробки, безопасность без компромиссов. 
+        От визитки до интернет-магазина с интеграциями.
       </p>
       <div class="hero-actions">
         <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-primary">
@@ -111,7 +134,7 @@ const portfolio = [
     </div>
     <div class="services-grid-home">
       {services.map(service => (
-        <div class="card service-card-home">
+        <a href={service.link} class="card service-card-home card-link">
           <div class="service-icon-home">
             <Icon name={service.icon} size={24} />
           </div>
@@ -120,7 +143,7 @@ const portfolio = [
             <p>{service.description}</p>
             <span class="service-price">{service.price}</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </section>
@@ -130,21 +153,58 @@ const portfolio = [
     <h2 style="text-align: center;">Почему я</h2>
     <div class="features-grid">
       <div class="feature">
-        <div class="feature-number">15+</div>
-        <div class="feature-text">лет опыта в разработке</div>
+        <div class="feature-number">20</div>
+        <div class="feature-text">лет с MODX (с 2006 года)</div>
       </div>
       <div class="feature">
-        <div class="feature-number">200+</div>
-        <div class="feature-text">реализованных проектов</div>
+        <div class="feature-number">60+</div>
+        <div class="feature-text">проектов на MODX</div>
       </div>
       <div class="feature">
-        <div class="feature-number">50+</div>
-        <div class="feature-text">сайтов в топ-10 Яндекса</div>
+        <div class="feature-number">20</div>
+        <div class="feature-text">сайтов на продвижении</div>
       </div>
       <div class="feature">
-        <div class="feature-number">24/7</div>
-        <div class="feature-text">поддержка клиентов</div>
+        <div class="feature-number">0</div>
+        <div class="feature-text">взломанных сайтов</div>
       </div>
+    </div>
+    <div class="why-text">
+      <p>Специализируюсь на MODX Revolution — CMS с чистой архитектурой, где шаблоны не превращаются в «макароны» из PHP, JavaScript и HTML вперемешку. В MODX 90% того, что нужно бизнесу, работает из коробки: ЧПУ, редиректы, SEO-настройки, гибкие шаблоны. Один мой клиент пришёл с сайтом на Symfony — разработчик два месяца реализовывал то, что в MODX есть бесплатно.</p>
+    </div>
+  </section>
+
+  <!-- MODX Specialization -->
+  <section class="container section">
+    <h2 style="text-align: center;">MODX Revolution — моя специализация</h2>
+    <div class="modx-grid">
+      <div class="modx-card">
+        <div class="modx-card-icon">
+          <Icon name="code" size={28} />
+        </div>
+        <h3>Чистый код</h3>
+        <p>Никаких «макарон». MODX даёт чистую архитектуру: шаблоны, чанки, сниппеты — каждый элемент на своём месте. Легко поддерживать, дорабатывать и масштабировать.</p>
+      </div>
+      <div class="modx-card">
+        <div class="modx-card-icon">
+          <Icon name="trending-up" size={28} />
+        </div>
+        <h3>SEO из коробки</h3>
+        <p>Редиректы, ЧПУ, мета-теги, sitemap — всё работает из коробки. Не нужно 20 плагинов, как на WordPress. Сайт сразу готов к продвижению в Яндексе и Google.</p>
+      </div>
+      <div class="modx-card">
+        <div class="modx-card-icon">
+          <Icon name="shield" size={28} />
+        </div>
+        <h3>Безопасность</h3>
+        <p>За 20 лет — ни одного взломанного сайта. DDoS, SQL-инъекции, тысячи атак через формы — MODX выдерживает. Взломать можно всё, но с MODX спокойнее.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: var(--space-8);">
+      <a href={`${base}services/`} class="btn btn-secondary">
+        Все услуги MODX
+        <Icon name="arrow-right" size={16} />
+      </a>
     </div>
   </section>
   
@@ -204,9 +264,9 @@ const portfolio = [
   <!-- CTA -->
   <section class="container section">
     <div class="cta-section">
-      <h2>Готовы начать проект?</h2>
+      <h2>Нужен сайт на MODX или SEO-продвижение?</h2>
       <p>
-        Напишите мне — обсудим задачу, сроки и стоимость. Консультация бесплатно.
+        Расскажите о задаче — оценю сроки, стоимость и предложу решение. Консультация бесплатно, без обязательств.
       </p>
       <a href="https://t.me/antonneprosto" target="_blank" class="btn btn-primary">
         <Icon name="send" size={16} />
@@ -260,11 +320,17 @@ const portfolio = [
   
   .services-grid-home {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    .services-grid-home {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
     .services-grid-home {
       grid-template-columns: 1fr;
     }
@@ -274,6 +340,8 @@ const portfolio = [
     display: flex;
     gap: var(--space-4);
     align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
   }
   
   .service-icon-home {
@@ -336,6 +404,67 @@ const portfolio = [
   .feature-text {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
+  }
+
+  .why-text {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+  }
+
+  .why-text p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .modx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .modx-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .modx-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: border-color var(--transition-base);
+  }
+
+  .modx-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .modx-card-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-lg);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .modx-card h3 {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .modx-card p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
   }
   
   .portfolio-grid-home {
