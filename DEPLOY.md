@@ -1,70 +1,60 @@
-# Инструкция по деплою antonvetrov.ru
+# Деплой antonvetrov.ru — инструкция
 
-## ⚠️ ВАЖНО — НЕ МЕНЯТЬ
-
-```js
-// astro.config.mjs
-site: 'https://antonvetrov.ru',
-base: '/',
-```
-
-**НЕ** `base: '/anton-vetrov/'` — это ломает ВСЁ на хостинге.
-
-## Как добавить статью
-
-1. Создай файл `src/content/blog/<slug>.md`
-2. Frontmatter:
-
-```yaml
----
-title: "Заголовок статьи"
-description: "Описание для SEO (до 160 символов)"
-pubDate: 2025-02-24
-category: "ИИ"          # ИИ | Разработка | SEO | Хостинги (или новая)
-tags: ["тег1", "тег2"]
-author: "Антон Ветров"
-heroImage: "/images/blog/hero-slug.webp"
-draft: false
----
-```
-
-3. Картинку для статьи положи в `public/images/blog/`
-4. Пути к картинкам **БЕЗ** `/anton-vetrov/` — просто `/images/blog/...`
-
-## Категории
-
-Страницы категорий генерируются автоматически из `category` в frontmatter.
-Существующие: ИИ, Разработка, SEO, Хостинги.
-Новые создадутся автоматически.
-
-## Партнёрские ссылки
-
-Перед публикацией проверь файл партнёрок (спроси у Антона или Сани).
-Вставляй партнёрские ссылки в статьи где уместно.
-
-## CSS правила
-
-- **Ссылки в статьях:** светло-синие (#60a5fa), видимые
-- **TOC:** на десктопе справа (sidebar), на мобильном — над текстом
-- **Inline padding:** используй `padding-top` / `padding-bottom` отдельно, **НЕ** `padding: X 0 Y`
-
-## Деплой на хостинг
-
-После пуша в git:
+## Сборка и деплой
 
 ```bash
-cd <repo> && npx astro build
-cd dist && lftp -e "
-open -u redegun_openclo,99smbHmB 185.114.245.107
-set ftp:ssl-allow no
-mirror -R --delete . /antonvetrov/public_html/
-bye
-"
+cd /root/projects/anton-vetrov
+rm -rf dist
+npm run build
 ```
 
-## Не трогать
+### Деплой на FTP (ВАЖНО!)
 
-- `src/layouts/BlogPost.astro` — sidebar TOC layout
-- `src/styles/global.css` — .article-layout, .toc-sidebar, .toc-mobile, .prose a
-- `src/layouts/BaseLayout.astro` — yandex-verification мета-тег
-- `astro.config.mjs` — site и base
+`lftp mirror` НЕ перезаписывает файлы одинакового размера, даже с `--ignore-time`.
+При каждом билде Astro генерирует CSS с новым хэшем. HTML ссылается на этот хэш.
+Если HTML и CSS загрузятся от разных билдов — стили пропадут (CSS 404).
+
+**Правильный деплой — в два шага:**
+
+```bash
+# 1. Залить всё через mirror (новые файлы, удаление старых)
+cd /root/projects/anton-vetrov
+lftp -u redegun_openclo,99smbHmB 185.114.245.107 -e "
+mirror -R --delete --verbose=0 dist/ /antonvetrov/public_html/
+quit"
+
+# 2. ОБЯЗАТЕЛЬНО: форсировать перезапись всех HTML (put игнорирует размер)
+find dist -name 'index.html' | while read f; do
+  remote="/antonvetrov/public_html/${f#dist/}"
+  echo "put -O $(dirname "$remote") $f"
+done | lftp -u redegun_openclo,99smbHmB 185.114.245.107
+```
+
+### Проверка после деплоя
+
+```bash
+# Убедиться что CSS хэш в HTML совпадает с файлом на сервере
+CSS_HASH=$(curl -s https://antonvetrov.ru/ | grep -oP '/_astro/[^"]+\.css')
+curl -sI "https://antonvetrov.ru$CSS_HASH" | head -3
+# Должно быть HTTP/2 200
+```
+
+## Известные проблемы
+
+### CSS 404 после деплоя (стили пропадают)
+**Причина:** HTML от одного билда, CSS от другого — хэши не совпадают.
+**Решение:** Всегда деплоить из одной директории. Удалить `/tmp/anton-vetrov-fresh/` если существует.
+Только `/root/projects/anton-vetrov/` — единственная рабочая копия.
+
+### overflow-x: hidden на контейнерах
+НЕ ставить `overflow-x: hidden` на внутренние контейнеры — это создаёт implicit `overflow-y: auto` и вызывает скроллбар (белую полосу справа на мобильных).
+Разрешено только на `html`, `body`, `main`.
+
+### Scoped стили в Astro
+Astro scoped стили (`<style>` в `.astro` файлах) компилируются с уникальными `data-astro-cid-*` атрибутами. Они инлайнятся в HTML, а не в глобальный CSS бандл.
+
+## Рабочая копия
+
+- **Единственная:** `/root/projects/anton-vetrov/`
+- **НЕ использовать:** `/tmp/anton-vetrov-fresh/` (удалена)
+- **Репо:** `https://github.com/redegun/anton-vetrov.git`

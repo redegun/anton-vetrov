@@ -292,13 +292,13 @@ hr {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
   box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-5);
+    padding: 0 var(--space-6);
   }
 }
 
