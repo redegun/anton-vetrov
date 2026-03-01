@@ -3,7 +3,7 @@ title: "Продвинутая разработка на MODX: API, кастом
 description: "Глубокое погружение в продвинутую разработку на MODX Revolution: xPDO, процессоры, кастомные пакеты, Git workflow, автоматизация. Для опытных разработчиков."
 pubDate: 2026-03-01
 category: "Разработка"
-heroImage: "/images/blog/hero-ai-news-default.webp"
+heroImage: "/images/blog/hero-modx-prodvinutaya-razrabotka.webp"
 tags: ["MODX", "API", "Разработка"]
 draft: false
 ---

@@ -3,7 +3,7 @@ title: "SEO-оптимизация сайта на MODX: полный чекли
 description: "Полный гайд по SEO-оптимизации сайтов на MODX Revolution. ЧПУ, метатеги, sitemap, Schema.org, скорость загрузки. Практический опыт продвижения 20 сайтов."
 pubDate: 2026-03-01
 category: "Разработка"
-heroImage: "/images/blog/hero-ai-news-default.webp"
+heroImage: "/images/blog/hero-modx-seo-prodvizhenie-blog.webp"
 tags: ["MODX", "SEO", "Продвижение"]
 draft: false
 ---
