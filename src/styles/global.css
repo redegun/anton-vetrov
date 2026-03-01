@@ -1239,6 +1239,16 @@ hr {
   color: var(--color-text-secondary);
 }
 
+a.service-tech-link {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: border-color 0.2s, color 0.2s;
+}
+a.service-tech-link:hover {
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
 /* Pricing plans */
 .service-plans {
   display: grid;

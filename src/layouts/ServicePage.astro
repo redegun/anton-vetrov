@@ -133,9 +133,18 @@ const serviceSchema = {
       <section class="service-section">
         <h2>Технологии</h2>
         <div class="service-tech-list">
-          {technologies.map(t => (
-            <span class="service-tech-badge">{t.name}</span>
-          ))}
+          {technologies.map(t => {
+            const techLinks = {
+              'MODX': '/services/modx-razrabotka/',
+              'MODX Revolution': '/services/modx-razrabotka/',
+              'miniShop2': '/services/modx-internet-magazin/',
+              'WordPress': '/services/razrabotka-sajtov/',
+            } as any;
+            const href = techLinks[t.name];
+            return href && href !== `/services/${slug}/`
+              ? <a href={href} class="service-tech-badge service-tech-link">{t.name}</a>
+              : <span class="service-tech-badge">{t.name}</span>;
+          })}
         </div>
       </section>
     )}
