@@ -306,6 +306,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"openai-mentalnoe-zdorove-obnovlenie-chatgpt.md": {
+	id: "openai-mentalnoe-zdorove-obnovlenie-chatgpt.md";
+  slug: "openai-mentalnoe-zdorove-obnovlenie-chatgpt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "podpiski-na-nejroseti-2025.md": {
 	id: "podpiski-na-nejroseti-2025.md";
   slug: "podpiski-na-nejroseti-2025";
