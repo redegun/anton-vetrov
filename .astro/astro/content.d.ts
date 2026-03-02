@@ -313,6 +313,34 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"modx-api-xpdo.md": {
+	id: "modx-api-xpdo.md";
+  slug: "modx-api-xpdo";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-bezopasnost-zashhita.md": {
+	id: "modx-bezopasnost-zashhita.md";
+  slug: "modx-bezopasnost-zashhita";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-blog-sozdanie.md": {
+	id: "modx-blog-sozdanie.md";
+  slug: "modx-blog-sozdanie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-chanki-primery.md": {
+	id: "modx-chanki-primery.md";
+  slug: "modx-chanki-primery";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "modx-dopolneniya-top.md": {
 	id: "modx-dopolneniya-top.md";
   slug: "modx-dopolneniya-top";
@@ -327,9 +355,100 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"modx-fenom-shablonizator.md": {
+	id: "modx-fenom-shablonizator.md";
+  slug: "modx-fenom-shablonizator";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-filtracija-mfilter2.md": {
+	id: "modx-filtracija-mfilter2.md";
+  slug: "modx-filtracija-mfilter2";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-formit-formy.md": {
+	id: "modx-formit-formy.md";
+  slug: "modx-formit-formy";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-friendly-url-nastrojka.md": {
+	id: "modx-friendly-url-nastrojka.md";
+  slug: "modx-friendly-url-nastrojka";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-gallery-rabota-s-foto.md": {
+	id: "modx-gallery-rabota-s-foto.md";
+  slug: "modx-gallery-rabota-s-foto";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-hosting-vybor.md": {
+	id: "modx-hosting-vybor.md";
+  slug: "modx-hosting-vybor";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "modx-katalog-tovarov.md": {
 	id: "modx-katalog-tovarov.md";
   slug: "modx-katalog-tovarov";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-korzina-oformlenie-zakaza.md": {
+	id: "modx-korzina-oformlenie-zakaza.md";
+  slug: "modx-korzina-oformlenie-zakaza";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-migracija-s-wordpress.md": {
+	id: "modx-migracija-s-wordpress.md";
+  slug: "modx-migracija-s-wordpress";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-minishop2-internet-magazin.md": {
+	id: "modx-minishop2-internet-magazin.md";
+  slug: "modx-minishop2-internet-magazin";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-multiyazychnost-babel.md": {
+	id: "modx-multiyazychnost-babel.md";
+  slug: "modx-multiyazychnost-babel";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-nastrojka-posle-ustanovki.md": {
+	id: "modx-nastrojka-posle-ustanovki.md";
+  slug: "modx-nastrojka-posle-ustanovki";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-oplata-dostavka.md": {
+	id: "modx-oplata-dostavka.md";
+  slug: "modx-oplata-dostavka";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-pdotools-rukovodstvo.md": {
+	id: "modx-pdotools-rukovodstvo.md";
+  slug: "modx-pdotools-rukovodstvo";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -341,9 +460,58 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"modx-schema-markup.md": {
+	id: "modx-schema-markup.md";
+  slug: "modx-schema-markup";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "modx-seo-prodvizhenie.md": {
 	id: "modx-seo-prodvizhenie.md";
   slug: "modx-seo-prodvizhenie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-shablony-sozdanie.md": {
+	id: "modx-shablony-sozdanie.md";
+  slug: "modx-shablony-sozdanie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-skorost-optimizaciya.md": {
+	id: "modx-skorost-optimizaciya.md";
+  slug: "modx-skorost-optimizaciya";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-snippety-napisanie.md": {
+	id: "modx-snippety-napisanie.md";
+  slug: "modx-snippety-napisanie";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-tv-polya.md": {
+	id: "modx-tv-polya.md";
+  slug: "modx-tv-polya";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-ustanovka-na-hosting.md": {
+	id: "modx-ustanovka-na-hosting.md";
+  slug: "modx-ustanovka-na-hosting";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"modx-vs-wordpress.md": {
+	id: "modx-vs-wordpress.md";
+  slug: "modx-vs-wordpress";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
