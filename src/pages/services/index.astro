@@ -1,6 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .filter(p => ['SEO', 'Разработка', 'СЕО'].includes(p.data.category))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
 
 const serviceGroups = [
   {
@@ -100,6 +107,24 @@ const serviceGroups = [
       </a>
     </div>
   </div>
+
+  <!-- Полезные статьи -->
+  {blogPosts.length > 0 && (
+    <section class="cta-section" style="margin-top: var(--space-12);">
+      <div class="section-header">
+        <h2>Полезные статьи</h2>
+        <a href={`${base}blog/`} class="section-link">Все статьи <Icon name="arrow-right" size={16} /></a>
+      </div>
+      <div class="blog-grid">
+        {blogPosts.map((post) => (
+          <a href={`${base}blog/${post.slug}/`} class="card blog-card card-link">
+            <h4 style="margin-top: 0">{post.data.title}</h4>
+            <p class="blog-excerpt">{post.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
