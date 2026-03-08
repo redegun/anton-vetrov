@@ -159,6 +159,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"ai-avtomatizaciya-biznesa.md": {
+	id: "ai-avtomatizaciya-biznesa.md";
+  slug: "ai-avtomatizaciya-biznesa";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "chatgpt-go-podpiska.md": {
 	id: "chatgpt-go-podpiska.md";
   slug: "chatgpt-go-podpiska";
@@ -243,6 +250,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"ii-agenty-dlya-biznesa-kak-vybrat.md": {
+	id: "ii-agenty-dlya-biznesa-kak-vybrat.md";
+  slug: "ii-agenty-dlya-biznesa-kak-vybrat";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"integraciya-ii-s-crm-bitrix24-amocrm.md": {
+	id: "integraciya-ii-s-crm-bitrix24-amocrm.md";
+  slug: "integraciya-ii-s-crm-bitrix24-amocrm";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-oplatit-chatgpt-iz-rossii.md": {
 	id: "kak-oplatit-chatgpt-iz-rossii.md";
   slug: "kak-oplatit-chatgpt-iz-rossii";
@@ -274,6 +295,13 @@ declare module 'astro:content' {
 "kak-sostavit-semanticheskoe-jadro.md": {
 	id: "kak-sostavit-semanticheskoe-jadro.md";
   slug: "kak-sostavit-semanticheskoe-jadro";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-vnedrit-ii-v-biznes-poshagovo.md": {
+	id: "kak-vnedrit-ii-v-biznes-poshagovo.md";
+  slug: "kak-vnedrit-ii-v-biznes-poshagovo";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -582,6 +610,13 @@ declare module 'astro:content' {
 "skolko-stoit-sajt.md": {
 	id: "skolko-stoit-sajt.md";
   slug: "skolko-stoit-sajt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"skolko-stoit-vnedrenie-ii-v-biznes.md": {
+	id: "skolko-stoit-vnedrenie-ii-v-biznes.md";
+  slug: "skolko-stoit-vnedrenie-ii-v-biznes";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
