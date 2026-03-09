@@ -187,6 +187,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"chek-list-zapuska-sajta.md": {
+	id: "chek-list-zapuska-sajta.md";
+  slug: "chek-list-zapuska-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "chto-takoe-crm-integracija.md": {
 	id: "chto-takoe-crm-integracija.md";
   slug: "chto-takoe-crm-integracija";
@@ -197,6 +204,13 @@ declare module 'astro:content' {
 "chto-takoe-modx-revolution.md": {
 	id: "chto-takoe-modx-revolution.md";
   slug: "chto-takoe-modx-revolution";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"chto-vhodit-v-tehpodderzhku-sajta.md": {
+	id: "chto-vhodit-v-tehpodderzhku-sajta.md";
+  slug: "chto-vhodit-v-tehpodderzhku-sajta";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -299,6 +313,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"kak-sostavit-tz-na-redizajn.md": {
+	id: "kak-sostavit-tz-na-redizajn.md";
+  slug: "kak-sostavit-tz-na-redizajn";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-vnedrit-ii-v-biznes-poshagovo.md": {
 	id: "kak-vnedrit-ii-v-biznes-poshagovo.md";
   slug: "kak-vnedrit-ii-v-biznes-poshagovo";
@@ -316,6 +337,20 @@ declare module 'astro:content' {
 "kak-vybrat-seo-specialista.md": {
 	id: "kak-vybrat-seo-specialista.md";
   slug: "kak-vybrat-seo-specialista";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kak-zashhitit-sajt-ot-vzloma.md": {
+	id: "kak-zashhitit-sajt-ot-vzloma.md";
+  slug: "kak-zashhitit-sajt-ot-vzloma";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kogda-nuzhen-monitoring-sajta.md": {
+	id: "kogda-nuzhen-monitoring-sajta.md";
+  slug: "kogda-nuzhen-monitoring-sajta";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -586,6 +621,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"sajt-katalog-vs-internet-magazin.md": {
+	id: "sajt-katalog-vs-internet-magazin.md";
+  slug: "sajt-katalog-vs-internet-magazin";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"sajt-vizitka-ili-lending.md": {
+	id: "sajt-vizitka-ili-lending.md";
+  slug: "sajt-vizitka-ili-lending";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "seo-audit-chto-proveryat.md": {
 	id: "seo-audit-chto-proveryat.md";
   slug: "seo-audit-chto-proveryat";
@@ -635,6 +684,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"skolko-stoit-podderzhka-sajta.md": {
+	id: "skolko-stoit-podderzhka-sajta.md";
+  slug: "skolko-stoit-podderzhka-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"skolko-stoit-razrabotka-sajta-2026.md": {
+	id: "skolko-stoit-razrabotka-sajta-2026.md";
+  slug: "skolko-stoit-razrabotka-sajta-2026";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "skolko-stoit-sajt.md": {
 	id: "skolko-stoit-sajt.md";
   slug: "skolko-stoit-sajt";
@@ -680,6 +743,13 @@ declare module 'astro:content' {
 "vnutrennjaja-optimizacija-sajta.md": {
 	id: "vnutrennjaja-optimizacija-sajta.md";
   slug: "vnutrennjaja-optimizacija-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"zachem-sajtu-rezervnye-kopii.md": {
+	id: "zachem-sajtu-rezervnye-kopii.md";
+  slug: "zachem-sajtu-rezervnye-kopii";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

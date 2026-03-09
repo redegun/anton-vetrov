@@ -6,7 +6,7 @@ import ServicePage from '../../layouts/ServicePage.astro';
   title="Техподдержка сайтов — от 10 000 ₽/мес | Антон Ветров"
   description="Обслуживание и поддержка сайтов: мониторинг, резервные копии, обновления, правки. Быстрая реакция 24/7."
   h1="Техническая поддержка и обслуживание сайтов"
-  subtitle="Ваш сайт работает 24/7 — и кто-то должен за ним следить. Беру это на себя: мониторинг, обновления, правки, резервные копии."
+  subtitle="Ваш сайт работает 24/7 — и кто-то должен за ним следить. Беру это на себя: мониторинг, обновления, правки, резервные копии. Отдельные тарифы для <a href='/services/podderzhka-wordpress/'>WordPress</a> и <a href='/services/podderzhka-modx/'>MODX</a>. Если нужна комплексная безопасность — <a href='/services/zashhita-sajta/'>защита сайта от взлома</a>."
   slug="podderzhka-sajtov"
   stats={[{"value":"24/7","label":"мониторинг"},{"value":"от 10к","label":"₽/мес"}]}
   features_title="Что входит в поддержку"
@@ -22,4 +22,16 @@ import ServicePage from '../../layouts/ServicePage.astro';
   cta_body="Напишите — оценю состояние вашего сайта и подберу подходящий тариф."
   cta_text="Написать в Telegram"
   cta_link="https://t.me/antonneprosto"
-/>
+>
+  <section class="service-section" style="margin-top: var(--space-12);">
+    <h2>Полезные статьи про техподдержку</h2>
+    <ul>
+      <li><a href="/blog/chto-vhodit-v-tehpodderzhku-sajta/">Что входит в техподдержку сайта: полный список работ</a> — разбор всех задач обслуживания</li>
+      <li><a href="/blog/skolko-stoit-podderzhka-sajta/">Сколько стоит техподдержка сайта в 2026 году</a> — актуальные цены и форматы</li>
+      <li><a href="/blog/zachem-sajtu-rezervnye-kopii/">Зачем сайту резервные копии и как часто их делать</a> — почему бэкапы обязательны</li>
+      <li><a href="/blog/kak-zashhitit-sajt-ot-vzloma/">Как защитить сайт от взлома: базовые и продвинутые меры</a> — практический разбор</li>
+      <li><a href="/blog/kogda-nuzhen-monitoring-sajta/">Зачем сайту мониторинг и что нужно отслеживать</a> — раннее обнаружение проблем</li>
+    </ul>
+    <p style="margin-top: var(--space-4);">Также смотрите: <a href="/services/podderzhka-wordpress/">Поддержка WordPress</a> · <a href="/services/podderzhka-modx/">Поддержка MODX</a> · <a href="/services/zashhita-sajta/">Защита сайта от взлома</a></p>
+  </section>
+</ServicePage>
