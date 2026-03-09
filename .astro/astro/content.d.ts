@@ -313,9 +313,23 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"kak-vybrat-seo-specialista.md": {
+	id: "kak-vybrat-seo-specialista.md";
+  slug: "kak-vybrat-seo-specialista";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "landing-vs-sajt.md": {
 	id: "landing-vs-sajt.md";
   slug: "landing-vs-sajt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"lokalnoe-seo-yandex-karty.md": {
+	id: "lokalnoe-seo-yandex-karty.md";
+  slug: "lokalnoe-seo-yandex-karty";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -572,9 +586,23 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"seo-audit-chto-proveryat.md": {
+	id: "seo-audit-chto-proveryat.md";
+  slug: "seo-audit-chto-proveryat";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "seo-audit-sajta.md": {
 	id: "seo-audit-sajta.md";
   slug: "seo-audit-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"seo-dlya-internet-magazina.md": {
+	id: "seo-dlya-internet-magazina.md";
+  slug: "seo-dlya-internet-magazina";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -610,6 +638,13 @@ declare module 'astro:content' {
 "skolko-stoit-sajt.md": {
 	id: "skolko-stoit-sajt.md";
   slug: "skolko-stoit-sajt";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"skolko-stoit-seo-prodvizhenie.md": {
+	id: "skolko-stoit-seo-prodvizhenie.md";
+  slug: "skolko-stoit-seo-prodvizhenie";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
