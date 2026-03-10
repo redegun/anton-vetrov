@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"kak-ne-poteryat-seo-pri-redizajne.md": {
+	id: "kak-ne-poteryat-seo-pri-redizajne.md";
+  slug: "kak-ne-poteryat-seo-pri-redizajne";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-oplatit-chatgpt-iz-rossii.md": {
 	id: "kak-oplatit-chatgpt-iz-rossii.md";
   slug: "kak-oplatit-chatgpt-iz-rossii";

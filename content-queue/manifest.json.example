@@ -1,0 +1,13 @@
+{
+  "queue": [
+    {
+      "type": "blog",
+      "file": "example-article.md",
+      "heroImage": "hero-example-article.webp"
+    },
+    {
+      "type": "service",
+      "file": "example-service.astro"
+    }
+  ]
+}
