@@ -614,6 +614,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"oshibki-pri-redizajne-sajta.md": {
+	id: "oshibki-pri-redizajne-sajta.md";
+  slug: "oshibki-pri-redizajne-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "podpiski-na-nejroseti-2025.md": {
 	id: "podpiski-na-nejroseti-2025.md";
   slug: "podpiski-na-nejroseti-2025";
