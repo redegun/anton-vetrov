@@ -537,6 +537,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"modx-otnositelnye-ssylki-404.md": {
+	id: "modx-otnositelnye-ssylki-404.md";
+  slug: "modx-otnositelnye-ssylki-404";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "modx-pdotools-rukovodstvo.md": {
 	id: "modx-pdotools-rukovodstvo.md";
   slug: "modx-pdotools-rukovodstvo";
@@ -638,6 +645,13 @@ declare module 'astro:content' {
 "razrabotka-sajta-na-modx.md": {
 	id: "razrabotka-sajta-na-modx.md";
   slug: "razrabotka-sajta-na-modx";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"redizajn-sajta-ili-novyj-sajt.md": {
+	id: "redizajn-sajta-ili-novyj-sajt.md";
+  slug: "redizajn-sajta-ili-novyj-sajt";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
