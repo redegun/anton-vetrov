@@ -733,6 +733,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"skolko-stoit-redizajn-sajta.md": {
+	id: "skolko-stoit-redizajn-sajta.md";
+  slug: "skolko-stoit-redizajn-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "skolko-stoit-sajt.md": {
 	id: "skolko-stoit-sajt.md";
   slug: "skolko-stoit-sajt";
