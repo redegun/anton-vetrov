@@ -25,7 +25,7 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title={`${categoryName} | Блог | Антон Ветров`} description={`Статьи в категории ${categoryName}`}>
+<BaseLayout title={`${categoryName} | Блог | Антон Ветров`} description={`Статьи в категории ${categoryName}`} noindex={true}>
   <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
     <h1>{categoryName}</h1>
     <p style="color: var(--color-text-secondary); margin-bottom: var(--space-8);">

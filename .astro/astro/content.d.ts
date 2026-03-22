@@ -159,9 +159,44 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"ai-agent-s-pamyatyu-artefakty.md": {
+	id: "ai-agent-s-pamyatyu-artefakty.md";
+  slug: "ai-agent-s-pamyatyu-artefakty";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "ai-avtomatizaciya-biznesa.md": {
 	id: "ai-avtomatizaciya-biznesa.md";
   slug: "ai-avtomatizaciya-biznesa";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"ai-crm-kvalifikaciya-lidov-analitika.md": {
+	id: "ai-crm-kvalifikaciya-lidov-analitika.md";
+  slug: "ai-crm-kvalifikaciya-lidov-analitika";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"ai-sistema-bez-cheloveka-avtomatizaciya.md": {
+	id: "ai-sistema-bez-cheloveka-avtomatizaciya.md";
+  slug: "ai-sistema-bez-cheloveka-avtomatizaciya";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"arhitektura-ai-sistem-4-sloya.md": {
+	id: "arhitektura-ai-sistem-4-sloya.md";
+  slug: "arhitektura-ai-sistem-4-sloya";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"bezopasnost-ai-agentov-sessii.md": {
+	id: "bezopasnost-ai-agentov-sessii.md";
+  slug: "bezopasnost-ai-agentov-sessii";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -194,6 +229,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"chto-takoe-ai-first-podkhod.md": {
+	id: "chto-takoe-ai-first-podkhod.md";
+  slug: "chto-takoe-ai-first-podkhod";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "chto-takoe-crm-integracija.md": {
 	id: "chto-takoe-crm-integracija.md";
   slug: "chto-takoe-crm-integracija";
@@ -211,6 +253,13 @@ declare module 'astro:content' {
 "chto-vhodit-v-tehpodderzhku-sajta.md": {
 	id: "chto-vhodit-v-tehpodderzhku-sajta.md";
   slug: "chto-vhodit-v-tehpodderzhku-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"cifrovye-rabotniki-ai-agenty.md": {
+	id: "cifrovye-rabotniki-ai-agenty.md";
+  slug: "cifrovye-rabotniki-ai-agenty";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -341,6 +390,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"kak-vybrat-llm-dlya-biznesa.md": {
+	id: "kak-vybrat-llm-dlya-biznesa.md";
+  slug: "kak-vybrat-llm-dlya-biznesa";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "kak-vybrat-seo-specialista.md": {
 	id: "kak-vybrat-seo-specialista.md";
   slug: "kak-vybrat-seo-specialista";
@@ -365,6 +421,13 @@ declare module 'astro:content' {
 "kogda-nuzhen-redizajn-sajta.md": {
 	id: "kogda-nuzhen-redizajn-sajta.md";
   slug: "kogda-nuzhen-redizajn-sajta";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"kontekst-inzhiniring-vazhneje-vybora-modeli.md": {
+	id: "kontekst-inzhiniring-vazhneje-vybora-modeli.md";
+  slug: "kontekst-inzhiniring-vazhneje-vybora-modeli";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -628,9 +691,30 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"plaginnaya-arhitektura-ai.md": {
+	id: "plaginnaya-arhitektura-ai.md";
+  slug: "plaginnaya-arhitektura-ai";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "podpiski-na-nejroseti-2025.md": {
 	id: "podpiski-na-nejroseti-2025.md";
   slug: "podpiski-na-nejroseti-2025";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"prodvizhenie-sajta-s-pomoshchyu-nejrosetej.md": {
+	id: "prodvizhenie-sajta-s-pomoshchyu-nejrosetej.md";
+  slug: "prodvizhenie-sajta-s-pomoshchyu-nejrosetej";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"provajdery-i-klienty-ai-sistemy.md": {
+	id: "provajdery-i-klienty-ai-sistemy.md";
+  slug: "provajdery-i-klienty-ai-sistemy";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -715,6 +799,13 @@ declare module 'astro:content' {
 "seo-prodvizhenie-sajta-samostojatelno.md": {
 	id: "seo-prodvizhenie-sajta-samostojatelno.md";
   slug: "seo-prodvizhenie-sajta-samostojatelno";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"sistemnyj-vs-tekhnicheskij-agent.md": {
+	id: "sistemnyj-vs-tekhnicheskij-agent.md";
+  slug: "sistemnyj-vs-tekhnicheskij-agent";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
