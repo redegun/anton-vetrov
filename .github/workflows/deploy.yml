@@ -38,7 +38,7 @@ jobs:
         with:
           path: ./dist
 
-  deploy:
+  deploy-pages:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,3 +48,32 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-hosting:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro
+        run: npm run build
+
+      - name: Deploy to Timeweb via LFTP
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "${{ secrets.FTP_USER }},${{ secrets.FTP_PASS }}" ${{ secrets.FTP_HOST }} -e "
+            set ftp:ssl-allow no
+            set mirror:use-pget-n 5
+            mirror -R --delete --verbose dist/ /antonvetrov/public_html/
+            quit
+          "
