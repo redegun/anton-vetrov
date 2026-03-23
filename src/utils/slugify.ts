@@ -4,6 +4,7 @@ const categorySlugMap: Record<string, string> = {
   'SEO': 'seo',
   'Хостинги': 'hosting',
   'Новости ИИ': 'ai-news',
+  'Утилиты': 'utility',
 };
 
 const slugToCategoryMap: Record<string, string> = Object.fromEntries(

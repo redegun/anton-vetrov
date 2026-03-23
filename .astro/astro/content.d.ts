@@ -740,6 +740,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"rtk-token-killer-ekonomiya-tokenov-llm.md": {
+	id: "rtk-token-killer-ekonomiya-tokenov-llm.md";
+  slug: "rtk-token-killer-ekonomiya-tokenov-llm";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "sajt-katalog-vs-internet-magazin.md": {
 	id: "sajt-katalog-vs-internet-magazin.md";
   slug: "sajt-katalog-vs-internet-magazin";
