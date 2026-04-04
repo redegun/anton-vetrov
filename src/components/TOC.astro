@@ -1,19 +1,15 @@
 ---
 interface Props {
   headings: { depth: number; slug: string; text: string }[];
-  collapsed?: boolean;
 }
 
-const { headings, collapsed = false } = Astro.props;
+const { headings } = Astro.props;
 const filteredHeadings = headings.filter(h => h.depth >= 2 && h.depth <= 4);
 ---
 
 {filteredHeadings.length > 0 && (
-  <nav class={`toc ${collapsed ? 'toc-collapsed' : ''}`}>
-    <button class="toc-toggle" type="button" aria-expanded={!collapsed}>
-      <span class="toc-title">Содержание</span>
-      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
+  <nav class="toc">
+    <div class="toc-title">Содержание</div>
     <ul class="toc-list">
       {filteredHeadings.map((heading) => (
         <li class={`toc-h${heading.depth}`}>
@@ -23,14 +19,3 @@ const filteredHeadings = headings.filter(h => h.depth >= 2 && h.depth <= 4);
     </ul>
   </nav>
 )}
-
-<script>
-  document.querySelectorAll('.toc-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const toc = btn.closest('.toc');
-      if (!toc) return;
-      const isCollapsed = toc.classList.toggle('toc-collapsed');
-      btn.setAttribute('aria-expanded', String(!isCollapsed));
-    });
-  });
-</script>

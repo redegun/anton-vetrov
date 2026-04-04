@@ -1,27 +1,15 @@
 ---
-interface Props {
-  name?: string;
-  url?: string;
-  jobTitle?: string;
-}
-
-const {
-  name = 'Антон Ветров',
-  url = 'https://antonvetrov.ru',
-  jobTitle = 'Веб-разработчик, SEO-специалист',
-} = Astro.props;
-
 const schema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name,
-  url,
-  jobTitle,
+  "name": "Антон Ветров",
+  "url": "https://antonvetrov.ru",
+  "jobTitle": "Веб-разработчик, SEO-специалист",
   "description": "Разработка сайтов и SEO-продвижение. 20 лет опыта.",
   "sameAs": [
     "https://t.me/antonneprosto"
   ],
-  "knowsAbout": ["Веб-разработка", "SEO", "MODX", "PHP", "JavaScript", "Astro", "AI"]
+  "knowsAbout": ["Веб-разработка", "SEO", "MODX", "PHP", "JavaScript", "Astro"]
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

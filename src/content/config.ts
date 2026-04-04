@@ -10,7 +10,7 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     category: z.string(),
     tags: z.array(z.string()).default([]),
-    author: z.string().default('Артём Ветров'),
+    author: z.string().default('Антон Ветров'),
     draft: z.boolean().default(false),
   }),
 });

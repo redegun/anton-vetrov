@@ -2,13 +2,11 @@
 interface Props {
   name: string;
   bio?: string;
-  link?: string;
 }
 
 const { 
   name, 
-  bio = 'Веб-разработчик с 20-летним опытом. Создаю сайты на MODX, внедряю AI-решения для бизнеса.',
-  link = '/blog/author/artem-vetrov/'
+  bio = 'Веб-разработчик с 20 лет опыта. Создаю сайты на MODX, занимаюсь SEO-продвижением.'
 } = Astro.props;
 
 const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
@@ -19,11 +17,7 @@ const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
     {initials}
   </div>
   <div class="author-info">
-    {link ? (
-      <a href={link} class="author-name author-link">{name}</a>
-    ) : (
-      <div class="author-name">{name}</div>
-    )}
+    <div class="author-name">{name}</div>
     <p class="author-bio">{bio}</p>
   </div>
 </div>

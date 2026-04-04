@@ -722,48 +722,12 @@ hr {
   margin-bottom: var(--space-8);
 }
 
-.toc-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  margin-bottom: var(--space-4);
-}
-
-.toc-chevron {
-  transition: transform 0.2s ease;
-  color: var(--color-text-muted);
-}
-
-.toc-collapsed .toc-chevron {
-  transform: rotate(-90deg);
-}
-
-.toc-collapsed .toc-list {
-  display: none;
-}
-
 .toc-title {
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 0;
-}
-
-/* In sidebar (desktop), no toggle needed */
-.toc-sidebar .toc-toggle {
-  cursor: default;
-}
-.toc-sidebar .toc-chevron {
-  display: none;
-}
-.toc-sidebar .toc-title {
   margin-bottom: var(--space-4);
 }
 
@@ -835,17 +799,6 @@ hr {
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: var(--space-1);
-}
-
-a.author-link {
-  text-decoration: none;
-  color: var(--color-text);
-  transition: color var(--transition-fast);
-  display: block;
-}
-
-a.author-link:hover {
-  color: var(--color-accent);
 }
 
 .author-bio {
