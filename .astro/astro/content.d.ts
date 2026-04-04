@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"cli-anything-ii-agenty-upravlyayut-lyubym-po.md": {
+	id: "cli-anything-ii-agenty-upravlyayut-lyubym-po.md";
+  slug: "cli-anything-ii-agenty-upravlyayut-lyubym-po";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "cursor-ai-podpiska.md": {
 	id: "cursor-ai-podpiska.md";
   slug: "cursor-ai-podpiska";
